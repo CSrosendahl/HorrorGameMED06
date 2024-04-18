@@ -9,6 +9,8 @@ public class NetworkManagerUI : MonoBehaviour
     [SerializeField] private Button HostButton;
     [SerializeField] private Button ClientButton;
     [SerializeField] private TMP_InputField JoinCodeInput;
+    [SerializeField] GameObject JoinScreen;
+    [SerializeField] TMP_Text codeText;
 
     private TestRelay testRelay;
 
@@ -22,7 +24,7 @@ public class NetworkManagerUI : MonoBehaviour
             return;
         }
 
-        HostButton.onClick.AddListener(() => testRelay.CreateRelay());
+        HostButton.onClick.AddListener(StartingRelay);
         ClientButton.onClick.AddListener(JoinRelayWithCode);
     }
 
@@ -36,11 +38,20 @@ public class NetworkManagerUI : MonoBehaviour
         {
             // Call JoinRelay with the join code
             testRelay.JoinRelay(joinCode);
+            JoinScreen.SetActive(false);
+            codeText.text = joinCode;
         }
         else
         {
             // Handle the case when join code is empty
             Debug.LogWarning("Join code is empty. Please enter a valid join code.");
         }
+    }
+
+
+  private void StartingRelay()
+    {
+        testRelay.CreateRelay();
+        JoinScreen.SetActive(false);
     }
 }
