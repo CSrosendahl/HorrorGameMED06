@@ -3,31 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using Unity.Netcode;
 
 public class NetworkManagerUI : MonoBehaviour
 {
-
     [SerializeField] private Button HostButton;
     [SerializeField] private Button ClientButton;
-    [SerializeField] private Button ServButton ;
+    [SerializeField] private TMP_InputField JoinCodeInput;
+
+    private TestRelay testRelay;
 
     private void Awake()
     {
-        HostButton.onClick.AddListener(() => NetworkManager.Singleton.StartHost());
-        ServButton.onClick.AddListener(() => NetworkManager.Singleton.StartServer());
-        ClientButton.onClick.AddListener(() => NetworkManager.Singleton.StartClient());
+        // Ensure testRelay reference is set
+        testRelay = FindObjectOfType<TestRelay>();
+        if (testRelay == null)
+        {
+            Debug.LogError("TestRelay script not found in the scene.");
+            return;
+        }
+
+        HostButton.onClick.AddListener(() => testRelay.CreateRelay());
+        ClientButton.onClick.AddListener(JoinRelayWithCode);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void JoinRelayWithCode()
     {
-        
-    }
+        // Get the join code from the input field
+        string joinCode = JoinCodeInput.text;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Check if join code is not empty
+        if (!string.IsNullOrEmpty(joinCode))
+        {
+            // Call JoinRelay with the join code
+            testRelay.JoinRelay(joinCode);
+        }
+        else
+        {
+            // Handle the case when join code is empty
+            Debug.LogWarning("Join code is empty. Please enter a valid join code.");
+        }
     }
 }
