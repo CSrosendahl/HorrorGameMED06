@@ -25,6 +25,7 @@ namespace StarterAssets
         public bool cursorInputForLook = true;
 
         public NetworkSpawner networkSpawner;
+        public MonsterAbility monsterAbility;
 
 
 
@@ -62,6 +63,18 @@ namespace StarterAssets
         {
             networkSpawner.ServerSpawnObjectServerRPC();
             Debug.Log("Z pressed");
+
+        }
+        public void OnQ()
+        {
+            monsterAbility.MonsterReach();
+            Debug.Log("Q pressed");
+
+        }
+        public void OnF()
+        {
+            monsterAbility.MonsterScream();
+            Debug.Log("F pressed");
 
         }
 
