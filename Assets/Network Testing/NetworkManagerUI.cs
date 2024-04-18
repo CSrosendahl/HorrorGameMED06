@@ -14,6 +14,9 @@ public class NetworkManagerUI : MonoBehaviour
 
     private TestRelay testRelay;
 
+    public AudioSource audioSource;
+    
+
     private void Awake()
     {
         // Ensure testRelay reference is set
@@ -26,6 +29,14 @@ public class NetworkManagerUI : MonoBehaviour
 
         HostButton.onClick.AddListener(StartingRelay);
         ClientButton.onClick.AddListener(JoinRelayWithCode);
+       
+        audioSource.Play();
+
+    }
+
+    private void Start()
+    {
+     
     }
 
     private void JoinRelayWithCode()
@@ -40,6 +51,7 @@ public class NetworkManagerUI : MonoBehaviour
             testRelay.JoinRelay(joinCode);
             JoinScreen.SetActive(false);
             codeText.text = joinCode;
+            audioSource.Stop();
         }
         else
         {
@@ -53,5 +65,6 @@ public class NetworkManagerUI : MonoBehaviour
     {
         testRelay.CreateRelay();
         JoinScreen.SetActive(false);
+        audioSource.Stop();
     }
 }
