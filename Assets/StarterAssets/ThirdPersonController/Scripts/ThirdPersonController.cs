@@ -1,6 +1,7 @@
 ﻿ using UnityEngine;
 using Unity.Netcode;
-#if ENABLE_INPUT_SYSTEM 
+using Cinemachine;
+#if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
 
@@ -64,6 +65,8 @@ namespace StarterAssets
         [Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
         public GameObject CinemachineCameraTarget;
 
+        [SerializeField] private CinemachineVirtualCamera CVC;
+
         [Tooltip("How far in degrees can you move the camera up")]
         public float TopClamp = 70.0f;
 
@@ -79,6 +82,7 @@ namespace StarterAssets
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
+     
 
         // player
         private float _speed;
@@ -131,6 +135,11 @@ namespace StarterAssets
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
+
+            if (CVC == null)
+            {
+                CVC = FindAnyObjectByType<CinemachineVirtualCamera>();
+            }
         }
 
         private void Start()
@@ -151,15 +160,33 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+
+
+        }
+
+        public override void OnNetworkSpawn()
+        {
+            base.OnNetworkSpawn();
+            if (IsClient && IsOwner)
+            {
+             _playerInput = GetComponent<PlayerInput>();
+                _playerInput.enabled = true;
+                CVC.Follow = transform.GetChild(0);
+
+
+
+            }
         }
 
         private void Update()
         {
+            if (IsOwner) { 
             _hasAnimator = TryGetComponent(out _animator);
 
             JumpAndGravity();
             GroundedCheck();
             Move();
+        }
         }
 
         private void LateUpdate()
