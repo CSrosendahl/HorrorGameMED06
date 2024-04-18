@@ -2635,7 +2635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2819936422
+  GlobalObjectIdHash: 3753727591
   InScenePlacedSourceGlobalObjectIdHash: 2716595249
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -2913,7 +2913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterAnim: {fileID: 3863482738368046087}
   controller: {fileID: 2185441865574393769}
-  screamTrigger: {fileID: 3106519119351354648}
+  screamTrigger: {fileID: 107284535861664002}
 --- !u!1 &7741009915430294880
 GameObject:
   m_ObjectHideFlags: 0

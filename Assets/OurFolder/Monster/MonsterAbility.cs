@@ -12,7 +12,7 @@ public class MonsterAbility : NetworkBehaviour
     private float startSprintMovementSpeed;
     private float startJumpHeight;
 
-    public ScreamTrigger screamTrigger;
+    public Collider screamTrigger;
 
     
     private void Start()
