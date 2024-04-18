@@ -8,7 +8,7 @@ namespace StarterAssets
 {
     public class StarterAssetsInputs : NetworkBehaviour
     {
-        [SerializeField] private Transform spawnPrefabs;
+       
 
         [Header("Character Input Values")]
         public Vector2 move;
@@ -24,17 +24,17 @@ namespace StarterAssets
         public bool cursorLocked = true;
         public bool cursorInputForLook = true;
 
-        NetworkSpawner networkSpawner;
+        public NetworkSpawner networkSpawner;
 
 
-     
+
 
 #if ENABLE_INPUT_SYSTEM
 
         public void OnMove(InputValue value)
         {
             MoveInput(value.Get<Vector2>());
-            Debug.Log("Move input: " + value.Get<Vector2>());
+           
         }
 
         public void OnLook(InputValue value)
@@ -48,7 +48,7 @@ namespace StarterAssets
         public void OnJump(InputValue value)
         {
             JumpInput(value.isPressed);
-            Debug.Log("Jump input: " + value.isPressed);
+           
         }
 
         public void OnSprint(InputValue value)
@@ -60,9 +60,9 @@ namespace StarterAssets
 
         public void OnZ()
         {
-            Debug.Log("Spawning prefab...");
-            Transform spawnObjectTransform = Instantiate(spawnPrefabs);
-            spawnObjectTransform.GetComponent<NetworkObject>().Spawn(true);
+            networkSpawner.ServerSpawnObjectServerRPC();
+            Debug.Log("Z pressed");
+
         }
 
 

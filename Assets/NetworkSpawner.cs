@@ -5,20 +5,12 @@ using Unity.Netcode;
 
 public class NetworkSpawner : NetworkBehaviour
 {
-    [SerializeField] private Transform spawnPrefab;
+     public Transform spawnPrefab;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+ 
 
-    // Update is called once per frame
-    void Update()
-    {
-     
-    }
-
-    public void SpawnObject()
+    [ServerRpc]
+    public void ServerSpawnObjectServerRPC()
     {
         Instantiate(spawnPrefab);
     }
