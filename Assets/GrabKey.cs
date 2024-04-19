@@ -7,16 +7,43 @@ using UnityEngine.InputSystem;
 public class GrabKey : NetworkBehaviour
 {
     public GameObject keyOnHuman;
+ 
+    private InputAction eAction;
+   
 
     private void Start()
     {
         keyOnHuman.SetActive(false);
+      
+        // Get reference to the 'E' action
+        eAction = GetComponent<PlayerInput>().actions["E"];
+        
     }
+
     private void OnTriggerEnter(Collider other)
     {
-       if (other.CompareTag("Human"))
+        // Check if the object entering the trigger is tagged as "Human"
+        if (other.CompareTag("Key"))
+        {   
+            // Add a listener to the 'E' action
+            eAction.performed += ctx => OnEPressed();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        // Check if the object exiting the trigger is tagged as "Key"
+        if (other.CompareTag("Key"))
         {
-            
-       }
-   }
+            // Remove the listener from the 'E' action
+            eAction.performed -= ctx => OnEPressed();
+        }
+    }
+
+    private void OnEPressed()
+    {
+        keyOnHuman.SetActive(true);
+      
+        Debug.Log("Key grabbed");
+    }
 }
