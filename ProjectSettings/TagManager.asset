@@ -8,6 +8,7 @@ TagManager:
   - Key
   - Anchor
   - Human
+  - Ground
   layers:
   - Default
   - TransparentFX

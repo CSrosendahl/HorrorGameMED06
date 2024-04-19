@@ -38,20 +38,20 @@ public class MonsterAbility : NetworkBehaviour
         monsterAnim.Play("Scream");
         FreezeMovement();
         screamTrigger.enabled = true;
-        StartCoroutine(ScreamFreezeMovement(2.15f));
+        StartCoroutine(WaitToUnfreeze(2.15f));
         Debug.Log("Monster is screaming");
     }
 
-    IEnumerator ScreamFreezeMovement(float wait)
+    IEnumerator WaitToUnfreeze(float wait)
     {
         
         yield return new WaitForSeconds(wait);
-        RevertToStartValuesAfterScream();
+        UnFreezeMovement();
 
 
     }
 
-    public void RevertToStartValuesAfterScream()
+    public void UnFreezeMovement()
     {
         controller.MoveSpeed = startMovementSpeed;
         controller.SprintSpeed = startSprintMovementSpeed;

@@ -2635,7 +2635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3753727591
+  GlobalObjectIdHash: 3300001371
   InScenePlacedSourceGlobalObjectIdHash: 2716595249
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -2727,6 +2727,7 @@ MonoBehaviour:
   cursorInputForLook: 1
   networkSpawner: {fileID: 71996308842549956}
   monsterAbility: {fileID: 7614204958537996164}
+  humanAbility: {fileID: 0}
 --- !u!114 &2052476514988096821
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class ScreamTrigger : NetworkBehaviour
 {
+    bool hasScreamed;
+
+    private void Start()
+    {
+        hasScreamed = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,6 +18,24 @@ public class ScreamTrigger : NetworkBehaviour
         {
             Debug.Log("Human was within the scream trigger");
             // Do something here
+            if(other != null && other.GetComponent<AffectedByScream>() != null)
+            {
+                if (!hasScreamed)
+                {
+                    other.GetComponent<AffectedByScream>().ScreamEffect();
+                    hasScreamed = true;
+                    StartCoroutine(ScreamCoolDown());
+                }
+            }
+           
+           
         }
+    }
+    IEnumerator ScreamCoolDown()
+    {
+        
+        yield return new WaitForSeconds(5f);
+        hasScreamed = false;
+   
     }
 }
