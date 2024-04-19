@@ -26,6 +26,7 @@ namespace StarterAssets
 
         public NetworkSpawner networkSpawner;
         public MonsterAbility monsterAbility;
+        public HumanAbility humanAbility;
 
 
 
@@ -67,7 +68,15 @@ namespace StarterAssets
         }
         public void OnQ()
         {
-            monsterAbility.MonsterReach();
+            if(monsterAbility != null)
+            {
+                monsterAbility.MonsterReach();
+            }
+            if(humanAbility != null)
+            {
+                humanAbility.HumanThrow();
+            }
+           
             Debug.Log("Q pressed");
 
         }
