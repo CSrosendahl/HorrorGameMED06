@@ -58,7 +58,7 @@ public class GrabKey : NetworkBehaviour
     {
         // Set keyGrapped to true to indicate that the key has been grabbed
         keyGrapped = true;
-        Destroy(collidedKey);
+        NetworkObject.Destroy(collidedKey);
         // Activate the key on the player
         keyOnHuman.SetActive(true);
        
