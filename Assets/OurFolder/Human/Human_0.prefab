@@ -1164,6 +1164,8 @@ GameObject:
   - component: {fileID: 6782944907415693677}
   - component: {fileID: 3412342573869397876}
   - component: {fileID: 540383103712417746}
+  - component: {fileID: 8584394744460678512}
+  - component: {fileID: 6995974023256364798}
   m_Layer: 8
   m_Name: Human_0
   m_TagString: Human
@@ -1253,8 +1255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2460386657
-  InScenePlacedSourceGlobalObjectIdHash: 4107613336
+  GlobalObjectIdHash: 3779560565
+  InScenePlacedSourceGlobalObjectIdHash: 3640483202
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -1529,8 +1531,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   humanAnimator: {fileID: 2576477698209064982}
   throwPrefab: {fileID: 6480153546754188087, guid: 0e91ac45de6c1b645bb197da49a6dfa1, type: 3}
+  controller: {fileID: 6839776389180563126}
   firePoint: {fileID: 5250356748821099144}
   throwForce: 10
+--- !u!114 &8584394744460678512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3955088286049235134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88c3322e9cbab704ba94b3872dbbc214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeIntensity: 1
+  shakeDuration: 3
+  freezeDuration: 2
+--- !u!114 &6995974023256364798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3955088286049235134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff08bfb442cf52b41b1c7a6f1fba4bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cineMachine: {fileID: 0}
+  isShaking: 0
+  noiseShakeProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  noiseStandardProfile: {fileID: 11400000, guid: 46965f9cbaf525742a6da4c2172a99cd, type: 2}
 --- !u!1 &4198394836603498147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1837,8 +1871,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3098641434
-  InScenePlacedSourceGlobalObjectIdHash: 4107613336
+  GlobalObjectIdHash: 3058375269
+  InScenePlacedSourceGlobalObjectIdHash: 3640483202
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
