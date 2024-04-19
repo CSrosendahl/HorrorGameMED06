@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 326e1ed68751c174b9d1571fcc8299c0, type: 3}
   m_Name: Character2
   m_EditorClassIdentifier: 
-  id: 2
-  displayName: Human 2
+  ID: 2
+  displayName: Monster
   icon: {fileID: 21300000, guid: a6721511441c05a43964dac58584c890, type: 3}
+  introPrefab: {fileID: 7589865105009220700, guid: 567517754c3e87a4f963cee86b49d139, type: 3}
+  gameplayPrefab: {fileID: 2184821783410156487, guid: 567517754c3e87a4f963cee86b49d139, type: 3}

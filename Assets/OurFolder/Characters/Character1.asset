@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 326e1ed68751c174b9d1571fcc8299c0, type: 3}
   m_Name: Character1
   m_EditorClassIdentifier: 
-  id: 1
+  ID: 1
   displayName: Human 1
   icon: {fileID: 21300000, guid: a6e9e9736379c164e81fdfd2c806a91c, type: 3}
+  introPrefab: {fileID: 7805579636986379522, guid: 64b1c61bbb2045e40861ec564ff5e31f, type: 3}
+  gameplayPrefab: {fileID: 805573631801098529, guid: 64b1c61bbb2045e40861ec564ff5e31f, type: 3}

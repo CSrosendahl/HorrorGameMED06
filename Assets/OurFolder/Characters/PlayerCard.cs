@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerCard : MonoBehaviour
@@ -10,24 +8,23 @@ public class PlayerCard : MonoBehaviour
     [SerializeField] private GameObject visuals;
     [SerializeField] private Image characterIconImage;
     [SerializeField] private TMP_Text playerNameText;
-    [SerializeField] private TMP_Text CharacterNameText;
+    [SerializeField] private TMP_Text characterNameText;
 
     public void UpdateDisplay(CharacterSelectState state)
     {
-        if (state.CharacterID != -1)
+        if (state.CharacterId != -1)
         {
-            var character = characterDatabase.GetCharacterById(state.CharacterID);
+            var character = characterDatabase.GetCharacterById(state.CharacterId);
             characterIconImage.sprite = character.Icon;
             characterIconImage.enabled = true;
-            CharacterNameText.text = character.DisplayName;
+            characterNameText.text = character.DisplayName;
         }
-
         else
         {
             characterIconImage.enabled = false;
         }
 
-        playerNameText.text = $"Player {state.ClientID}";
+        playerNameText.text = state.IsLockedIn ? $"Player {state.ClientId}" : $"Player {state.ClientId} (Picking...)";
 
         visuals.SetActive(true);
     }

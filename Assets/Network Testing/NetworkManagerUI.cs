@@ -11,6 +11,7 @@ public class NetworkManagerUI : MonoBehaviour
     [SerializeField] private TMP_InputField JoinCodeInput;
     [SerializeField] GameObject JoinScreen;
     [SerializeField] TMP_Text codeText;
+    [SerializeField] GameObject SelectUI;
 
     private TestRelay testRelay;
 
@@ -52,6 +53,7 @@ public class NetworkManagerUI : MonoBehaviour
             JoinScreen.SetActive(false);
             codeText.text = joinCode;
             audioSource.Stop();
+            SelectUI.SetActive(true);
         }
         else
         {
@@ -65,6 +67,7 @@ public class NetworkManagerUI : MonoBehaviour
     {
         testRelay.CreateRelay();
         JoinScreen.SetActive(false);
+        SelectUI.SetActive(true);
         audioSource.Stop();
     }
 }
