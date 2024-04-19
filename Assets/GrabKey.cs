@@ -14,14 +14,12 @@ public class GrabKey : NetworkBehaviour
 
     private GameObject collidedKey;
 
-
     private void Start()
     {
         keyOnHuman.SetActive(false);
 
         // Get reference to the 'E' action
         eAction = GetComponent<PlayerInput>().actions["E"];
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -58,10 +56,21 @@ public class GrabKey : NetworkBehaviour
     {
         // Set keyGrapped to true to indicate that the key has been grabbed
         keyGrapped = true;
-        NetworkObject.Destroy(collidedKey);
+
+        // Call the server method directly
+        OnEPressedServerRPC(collidedKey.GetComponent<NetworkObject>().NetworkObjectId);
+    }
+
+    [ServerRpc]
+    private void OnEPressedServerRPC(ulong networkObjectId)
+    {
+        // Find the key object by network object ID
+        var keyObject = NetworkManager.Singleton.SpawnManager.SpawnedObjects[networkObjectId];
+
+        // Destroy the key object on the server
+        NetworkObject.Destroy(keyObject.gameObject);
+
         // Activate the key on the player
         keyOnHuman.SetActive(true);
-       
-
     }
 }
