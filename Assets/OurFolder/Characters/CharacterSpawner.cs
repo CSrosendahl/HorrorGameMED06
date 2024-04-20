@@ -6,9 +6,9 @@ using UnityEngine;
 public class CharacterSpawner : NetworkBehaviour
 {
     [Header("References")]
-    [SerializeField] private CharacterDatabase characterDatabase; //Get allll the characters
-    [SerializeField] private Transform HumanSpawnPoint; //Human spawn point. Assign in inspector
-    [SerializeField] private Transform MonsterSpawnPoint; //Monster spawn point. Assign in inspector
+    [SerializeField] private CharacterDatabase characterDatabase;
+    [SerializeField] private Transform HumanSpawnPoint;
+    [SerializeField] private Transform MonsterSpawnPoint;
     // Add more spawn points as needed
 
     public override void OnNetworkSpawn()
@@ -18,15 +18,14 @@ public class CharacterSpawner : NetworkBehaviour
         foreach (var client in MatchplayNetworkServer.Instance.ClientData)
         {
             var character = characterDatabase.GetCharacterById(client.Value.characterId);
-            if (character != null) //Yay for bools 
-            {
-                // Assign spawn point based on character's isHuman flag
-                if (character.IsHuman)
+            if (character != null)
+            {   // Assign spawn point based on character's isHuman flag
+                if (character.IsHuman) //Ýaay for bools!
                 {
                     var characterInstance = Instantiate(character.GameplayPrefab, HumanSpawnPoint.position, Quaternion.identity);
                     characterInstance.SpawnAsPlayerObject(client.Value.clientId);
                 }
-                else if (character.IsMonster) //it's a monster
+                else if (character.IsMonster) //Its a monster!
                 {
                     var characterInstance = Instantiate(character.GameplayPrefab, MonsterSpawnPoint.position, Quaternion.identity);
                     characterInstance.SpawnAsPlayerObject(client.Value.clientId);

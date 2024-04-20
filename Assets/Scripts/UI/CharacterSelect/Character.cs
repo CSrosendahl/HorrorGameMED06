@@ -12,7 +12,7 @@ public class Character : ScriptableObject
     [SerializeField] private bool isHuman; // are we human?
     [SerializeField] private bool isMonster; // or are we dancer aka monster?
 
-    //make sure to add getters for all the fields. 
+    //Make sure to add getters for all the fields. 
     public int Id => id;
     public string DisplayName => displayName;
     public Sprite Icon => icon;

@@ -8,25 +8,16 @@ public class MainMenuDisplay : MonoBehaviour
     [SerializeField] private TMP_InputField joinCodeInputField;
     [SerializeField] private TMP_Text loadingText;
 
-   
-    private ClientGameManager gameManager;
-
-    private void Start()
-    {
-   
-    }
-
-
     public async void StartHost()
     {
-        loadingText.text = "Loading...";
+        loadingText.text = "Loading Character Selection...";
         await HostSingleton.Instance.StartHostAsync();
        
     }
 
     public async void StartClient()
     {
-        loadingText.text = "Loading...";
+        loadingText.text = "Loading Loading Character Selection...";
         await ClientSingleton.Instance.Manager.BeginConnection(joinCodeInputField.text);
       
     }

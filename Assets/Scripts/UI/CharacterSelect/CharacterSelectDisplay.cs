@@ -60,13 +60,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
 
         if (IsHost)
         {
-            NetworkManager.Singleton.OnClientConnectedCallback += HandleClientConnected;
-            NetworkManager.Singleton.OnClientDisconnectCallback += HandleClientDisconnected;
-
-            foreach (NetworkClient client in NetworkManager.Singleton.ConnectedClientsList)
-            {
-                HandleClientConnected(client.ClientId);
-            }
+          
             joinCodeText.text = HostSingleton.Instance.RelayHostData.JoinCode;
         }
     }
