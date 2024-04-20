@@ -2545,7 +2545,6 @@ GameObject:
   - component: {fileID: 2052476514988096821}
   - component: {fileID: 894622283614546914}
   - component: {fileID: 6675191465258950193}
-  - component: {fileID: 71996308842549956}
   - component: {fileID: 6412610074079579311}
   - component: {fileID: 7614204958537996164}
   m_Layer: 8
@@ -2728,7 +2727,7 @@ MonoBehaviour:
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
-  networkSpawner: {fileID: 71996308842549956}
+  networkSpawner: {fileID: 0}
   monsterAbility: {fileID: 7614204958537996164}
   humanAbility: {fileID: 0}
 --- !u!114 &2052476514988096821
@@ -2874,19 +2873,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TransitionStateInfoList: []
   m_Animator: {fileID: 3863482738368046087}
---- !u!114 &71996308842549956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7589865105009220700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4664a34596d853449aada5c04aca9598, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPrefab: {fileID: 6184493516287277214, guid: 23890e0063591b0439d1e7a12c6866c4, type: 3}
 --- !u!114 &6412610074079579311
 MonoBehaviour:
   m_ObjectHideFlags: 0
