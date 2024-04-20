@@ -553,6 +553,7 @@ GameObject:
   - component: {fileID: 3505544374643850438}
   - component: {fileID: 8132139278056697815}
   - component: {fileID: 7324382648338762376}
+  - component: {fileID: 5258595434550737648}
   - component: {fileID: 8318481275889527369}
   - component: {fileID: 3028586991346727128}
   - component: {fileID: 8424312584252434207}
@@ -573,7 +574,7 @@ Transform:
   m_GameObject: {fileID: 1579079058336339206}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.627, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -646,7 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1916400138
+  GlobalObjectIdHash: 3373848115
   InScenePlacedSourceGlobalObjectIdHash: 1534543948
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -739,6 +740,7 @@ MonoBehaviour:
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
+  networkSpawner: {fileID: 5258595434550737648}
   monsterAbility: {fileID: 0}
   humanAbility: {fileID: 3028586991346727128}
 --- !u!114 &3505544374643850438
@@ -884,6 +886,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TransitionStateInfoList: []
   m_Animator: {fileID: 739929677869316916}
+--- !u!114 &5258595434550737648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579079058336339206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4664a34596d853449aada5c04aca9598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPrefab: {fileID: 6184493516287277214, guid: 23890e0063591b0439d1e7a12c6866c4, type: 3}
 --- !u!114 &8318481275889527369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2745,12 +2760,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6874696355967156109}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1916400138
+  GlobalObjectIdHash: 2808300667
   InScenePlacedSourceGlobalObjectIdHash: 1534543948
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1

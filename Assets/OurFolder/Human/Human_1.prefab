@@ -2362,6 +2362,7 @@ GameObject:
   - component: {fileID: 6353976516017989199}
   - component: {fileID: 1546006820259211960}
   - component: {fileID: 4297923806236728459}
+  - component: {fileID: 2270545218299647482}
   - component: {fileID: -6982410329813020505}
   m_Layer: 8
   m_Name: Human_1
@@ -2452,7 +2453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2953022833
+  GlobalObjectIdHash: 2544762951
   InScenePlacedSourceGlobalObjectIdHash: 4107613336
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -2474,9 +2475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 2
-  isSneaking: 0
   SprintSpeed: 5.335
-  SneakSpeed: 0.5
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
   LandingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
@@ -2541,12 +2540,11 @@ MonoBehaviour:
   look: {x: 0, y: 0}
   jump: 0
   sprint: 0
-  sneak: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
+  networkSpawner: {fileID: 2270545218299647482}
   monsterAbility: {fileID: 0}
-  humanAbility: {fileID: 0}
 --- !u!114 &6353976516017989199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2690,6 +2688,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TransitionStateInfoList: []
   m_Animator: {fileID: 5652787767981746215}
+--- !u!114 &2270545218299647482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7805579636986379522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4664a34596d853449aada5c04aca9598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPrefab: {fileID: 6184493516287277214, guid: 23890e0063591b0439d1e7a12c6866c4, type: 3}
 --- !u!114 &-6982410329813020505
 MonoBehaviour:
   m_ObjectHideFlags: 0
