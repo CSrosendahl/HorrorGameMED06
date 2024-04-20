@@ -16,6 +16,8 @@ public class CharacterSelectDisplay : NetworkBehaviour
     [SerializeField] private Transform introSpawnPoint;
     [SerializeField] private TMP_Text joinCodeText;
     [SerializeField] private Button lockInButton;
+    [SerializeField] private TMP_Text abilitiesDescriptionText;
+
 
     private GameObject introInstance;
     private List<CharacterSelectButton> characterButtons = new List<CharacterSelectButton>();
@@ -102,7 +104,23 @@ public class CharacterSelectDisplay : NetworkBehaviour
             if (IsCharacterTaken(character.Id, false)) { return; }
         }
 
+        if (character.IsHuman)
+        {
+            abilitiesDescriptionText.text = "You have the following human abilities:\n- Ability 1\n- Ability 2\n- Ability 3";
+        }
+        else if (character.IsMonster) // Use else if here instead of another if
+        {
+            abilitiesDescriptionText.text = "You have the following monster abilities:\n- Ability 1\n- Ability 2\n- Ability 3";
+        }
+        else
+        {
+            abilitiesDescriptionText.text = ""; // Clear the text if neither human nor monster
+        }
+
+
         characterNameText.text = character.DisplayName;
+        
+
 
         characterInfoPanel.SetActive(true);
 

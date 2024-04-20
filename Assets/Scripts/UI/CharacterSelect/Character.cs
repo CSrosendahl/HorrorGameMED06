@@ -9,10 +9,15 @@ public class Character : ScriptableObject
     [SerializeField] private Sprite icon;
     [SerializeField] private GameObject introPrefab;
     [SerializeField] private NetworkObject gameplayPrefab;
+    [SerializeField] private bool isHuman;
+    [SerializeField] private bool isMonster;
 
     public int Id => id;
     public string DisplayName => displayName;
     public Sprite Icon => icon;
     public GameObject IntroPrefab => introPrefab;
     public NetworkObject GameplayPrefab => gameplayPrefab;
+
+    public bool IsHuman => isHuman;
+    public bool IsMonster => isMonster;
 }
