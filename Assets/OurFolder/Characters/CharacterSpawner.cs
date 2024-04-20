@@ -7,6 +7,9 @@ public class CharacterSpawner : NetworkBehaviour
 {
     [Header("References")]
     [SerializeField] private CharacterDatabase characterDatabase;
+    [SerializeField] private Transform HumanSpawnPoint;
+    [SerializeField] private Transform MonsterSpawnPoint;
+    // Add more spawn points as needed
 
     public override void OnNetworkSpawn()
     {
@@ -17,9 +20,18 @@ public class CharacterSpawner : NetworkBehaviour
             var character = characterDatabase.GetCharacterById(client.Value.characterId);
             if (character != null)
             {
-                var spawnPos = new Vector3(Random.Range(-3f, 3f), 0f, Random.Range(-3f, 3f));
-                var characterInstance = Instantiate(character.GameplayPrefab, spawnPos, Quaternion.identity);
-                characterInstance.SpawnAsPlayerObject(client.Value.clientId);
+                // Assign spawn point based on character ID
+                if (client.Value.characterId == 1)
+                {
+                    var characterInstance = Instantiate(character.GameplayPrefab, HumanSpawnPoint.position, Quaternion.identity);
+                    characterInstance.SpawnAsPlayerObject(client.Value.clientId);
+                }
+                else if (client.Value.characterId == 3)
+                {
+                    var characterInstance = Instantiate(character.GameplayPrefab, MonsterSpawnPoint.position, Quaternion.identity);
+                    characterInstance.SpawnAsPlayerObject(client.Value.clientId);
+                }
+                
             }
         }
     }
