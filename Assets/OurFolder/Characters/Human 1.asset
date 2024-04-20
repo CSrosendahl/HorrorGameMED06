@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10b06c7c69874ad4390b6d9b4d73ce98, type: 3}
-  m_Name: Human
+  m_Name: Human 1
   m_EditorClassIdentifier: 
-  id: 2
-  displayName: Human
-  icon: {fileID: 21300000, guid: 845392ac8b092da45bd1b6ee6b2ac594, type: 3}
-  introPrefab: {fileID: 1579079058336339206, guid: f1a2f0a35b9d2d342bde4a2bc8a476a4, type: 3}
-  gameplayPrefab: {fileID: 9030850433003102426, guid: f1a2f0a35b9d2d342bde4a2bc8a476a4, type: 3}
+  id: 1
+  displayName: Human 1
+  icon: {fileID: 21300000, guid: 456edb851ce0cba49a2914368c6e59c4, type: 3}
+  introPrefab: {fileID: 7805579636986379522, guid: 64b1c61bbb2045e40861ec564ff5e31f, type: 3}
+  gameplayPrefab: {fileID: 805573631801098529, guid: 64b1c61bbb2045e40861ec564ff5e31f, type: 3}
