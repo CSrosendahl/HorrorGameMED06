@@ -22,7 +22,9 @@ public class MonsterAbility : NetworkBehaviour
         startSprintMovementSpeed = controller.SprintSpeed;
         startJumpHeight = controller.JumpHeight;
         monsterAnim = GetComponent<Animator>();
-       
+        screamTrigger.enabled = false;
+
+
 
     }
 

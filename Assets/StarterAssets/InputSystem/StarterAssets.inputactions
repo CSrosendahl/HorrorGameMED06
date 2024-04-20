@@ -42,6 +42,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Sneak",
+                    "type": "PassThrough",
+                    "id": "412ff746-fa3a-4227-b1c3-58be2495ae89",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Interact",
                     "type": "Value",
                     "id": "168d654e-b58a-4ffc-a749-8ba617837191",
@@ -316,6 +325,17 @@
                     "processors": "",
                     "groups": "KeyboardMouse",
                     "action": "E",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8ff7fa50-1a18-4a71-8d69-9a182427045f",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Sneak",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -15,6 +15,7 @@ namespace StarterAssets
         public Vector2 look;
         public bool jump;
         public bool sprint;
+        public bool sneak;
   
 
         [Header("Movement Settings")]
@@ -57,8 +58,12 @@ namespace StarterAssets
         {
             SprintInput(value.isPressed);
         }
+        public void OnSneak(InputValue value)
+        {
+            SneakInput(value.isPressed);
+        }
 
-   
+
 
         public void OnZ()
         {
@@ -109,6 +114,10 @@ namespace StarterAssets
         public void SprintInput(bool newSprintState)
         {
             sprint = newSprintState;
+        }
+        public void SneakInput(bool newSneakState)
+        {
+            sneak = newSneakState;
         }
 
         private void OnApplicationFocus(bool hasFocus)

@@ -2,7 +2,7 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
-using UnityEditor.Rendering.LookDev;
+
 using UnityEngine;
 
 public class AffectedByScream : NetworkBehaviour
@@ -21,7 +21,7 @@ public class AffectedByScream : NetworkBehaviour
        cameraShake = GetComponent<CameraShake>();
        humanAnim = GetComponent<Animator>();
        humanAbility= GetComponent<HumanAbility>();
-       ScreamEffect();
+     //  ScreamEffect();
     }
 
     public void ScreamEffect()
