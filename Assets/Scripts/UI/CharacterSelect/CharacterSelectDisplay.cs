@@ -28,6 +28,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
         players = new NetworkList<CharacterSelectState>();
     }
 
+    //OnNetworkSpawn is called when the object is spawned on the network
     public override void OnNetworkSpawn()
     {
         if (IsClient)
@@ -44,6 +45,8 @@ public class CharacterSelectDisplay : NetworkBehaviour
             players.OnListChanged += HandlePlayersStateChanged;
         }
 
+        //If the object is a server, add the HandleClientConnected and HandleClientDisconnected methods to the NetworkManager callbacks
+
         if (IsServer)
         {
             NetworkManager.Singleton.OnClientConnectedCallback += HandleClientConnected;
@@ -57,10 +60,18 @@ public class CharacterSelectDisplay : NetworkBehaviour
 
         if (IsHost)
         {
+            NetworkManager.Singleton.OnClientConnectedCallback += HandleClientConnected;
+            NetworkManager.Singleton.OnClientDisconnectCallback += HandleClientDisconnected;
+
+            foreach (NetworkClient client in NetworkManager.Singleton.ConnectedClientsList)
+            {
+                HandleClientConnected(client.ClientId);
+            }
             joinCodeText.text = HostSingleton.Instance.RelayHostData.JoinCode;
         }
     }
 
+    //we dont need to keep track of the players when the server is despawned
     public override void OnNetworkDespawn()
     {
         if (IsClient)
@@ -80,6 +91,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
         players.Add(new CharacterSelectState(clientId));
     }
 
+    //We have to know if people rage quit
     private void HandleClientDisconnected(ulong clientId)
     {
         for (int i = 0; i < players.Count; i++)
@@ -91,6 +103,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
         }
     }
 
+    // what happens when a character is selected, display the character info panel and instantiate the character intro prefab, then call the SelectServerRpc
     public void Select(Character character)
     {
         for (int i = 0; i < players.Count; i++)
@@ -104,6 +117,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
             if (IsCharacterTaken(character.Id, false)) { return; }
         }
 
+        // Display the abilities of the selected character
         if (character.IsHuman)
         {
             abilitiesDescriptionText.text = "You have the following human abilities:\n- Ability 1\n- Ability 2\n- Ability 3";
@@ -120,8 +134,6 @@ public class CharacterSelectDisplay : NetworkBehaviour
 
         characterNameText.text = character.DisplayName;
         
-
-
         characterInfoPanel.SetActive(true);
 
         if (introInstance != null)
@@ -134,6 +146,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
         SelectServerRpc(character.Id);
     }
 
+    //Making sure everything can be seen on the server. aka its the same for everyone
     [ServerRpc(RequireOwnership = false)]
     private void SelectServerRpc(int characterId, ServerRpcParams serverRpcParams = default)
     {
@@ -158,6 +171,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
         LockInServerRpc();
     }
 
+    //all players have to lock in before the game can start
     [ServerRpc(RequireOwnership = false)]
     private void LockInServerRpc(ServerRpcParams serverRpcParams = default)
     {
@@ -185,7 +199,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
         {
             MatchplayNetworkServer.Instance.SetCharacter(player.ClientId, player.CharacterId);
         }
-
+        //Yay the game can start!! 
         MatchplayNetworkServer.Instance.StartGame();
     }
 
@@ -235,6 +249,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
         }
     }
 
+    //Not everyone can be the monster :( 
     private bool IsCharacterTaken(int characterId, bool checkAll)
     {
         for (int i = 0; i < players.Count; i++)
