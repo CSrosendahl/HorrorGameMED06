@@ -25,7 +25,7 @@ namespace StarterAssets
         public bool cursorLocked = true;
         public bool cursorInputForLook = true;
 
-        public NetworkSpawner networkSpawner;
+       
         public MonsterAbility monsterAbility;
         public HumanAbility humanAbility;
 
@@ -67,7 +67,7 @@ namespace StarterAssets
 
         public void OnZ()
         {
-            networkSpawner.ServerSpawnObjectServerRPC();
+            
             Debug.Log("Z pressed");
 
         }
