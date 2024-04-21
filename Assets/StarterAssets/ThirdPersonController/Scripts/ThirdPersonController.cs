@@ -1,6 +1,8 @@
 ﻿ using UnityEngine;
 using Unity.Netcode;
 using Cinemachine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -148,6 +150,9 @@ namespace StarterAssets
                 CVC = FindAnyObjectByType<CinemachineVirtualCamera>();
          
             }
+
+        
+
         }
 
         private void Start()
@@ -170,14 +175,25 @@ namespace StarterAssets
             _fallTimeoutDelta = FallTimeout;
 
 
-        }
-
-        public override void OnNetworkSpawn()
-        {
-            base.OnNetworkSpawn();
             if (IsClient && IsOwner)
             {
-             _playerInput = GetComponent<PlayerInput>();
+                _playerInput = GetComponent<PlayerInput>();
+                _playerInput.enabled = true;
+                CVC.Follow = transform.GetChild(0);
+
+
+
+            }
+
+
+
+        }
+
+        private void delayCVC()
+        {
+            if (IsClient && IsOwner)
+            {
+                _playerInput = GetComponent<PlayerInput>();
                 _playerInput.enabled = true;
                 CVC.Follow = transform.GetChild(0);
 
@@ -185,6 +201,23 @@ namespace StarterAssets
 
             }
         }
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            // Check if this is the scene where you want to setup player input and camera
+            if (scene.name == "Map Multiplayer")
+            {
+                delayCVC();
+            }
+        }
+
+       
+        public override void OnNetworkSpawn()
+        {
+            base.OnNetworkSpawn();
+          
+        }
+        
+        
 
         private void Update()
         {
@@ -211,6 +244,16 @@ namespace StarterAssets
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
         }
 
+        IEnumerator DelayedCVC()
+        {
+            yield return new WaitForSeconds(10);
+            if (IsClient && IsOwner)
+            {
+                _playerInput = GetComponent<PlayerInput>();
+                _playerInput.enabled = true;
+                CVC.Follow = transform.GetChild(0);
+            }
+        }
         private void GroundedCheck()
         {
             // set sphere position, with offset
