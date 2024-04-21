@@ -559,8 +559,8 @@ GameObject:
   - component: {fileID: 4807195994029569599}
   - component: {fileID: 3939719471475533369}
   m_Layer: 8
-  m_Name: Human_0
-  m_TagString: Player
+  m_Name: Bryce
+  m_TagString: Human
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
