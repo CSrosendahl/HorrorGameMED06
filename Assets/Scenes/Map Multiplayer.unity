@@ -8229,22 +8229,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7539522792964821726, guid: a4c43bf8901061a40a02054aba85ff81, type: 3}
-      propertyPath: HumanSpawnPoint
-      value: 
-      objectReference: {fileID: 963879822}
-    - target: {fileID: 7539522792964821726, guid: a4c43bf8901061a40a02054aba85ff81, type: 3}
-      propertyPath: MonsterSpawnPoint
-      value: 
-      objectReference: {fileID: 1047052538}
     - target: {fileID: 7539522792964821727, guid: a4c43bf8901061a40a02054aba85ff81, type: 3}
       propertyPath: m_Name
       value: CharacterSpawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 6485032653225200585, guid: a4c43bf8901061a40a02054aba85ff81, type: 3}
-    - {fileID: 4721210204709512426, guid: a4c43bf8901061a40a02054aba85ff81, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4c43bf8901061a40a02054aba85ff81, type: 3}
@@ -21654,11 +21644,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4088608855840970, guid: a90d2e4dce5384f4c9afa474ccf97099, type: 3}
   m_PrefabInstance: {fileID: 961811280}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &963879822 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5031945570430271069, guid: a4c43bf8901061a40a02054aba85ff81, type: 3}
-  m_PrefabInstance: {fileID: 377057183}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &964456011
 GameObject:
   m_ObjectHideFlags: 0
@@ -23776,11 +23761,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4527091693398824, guid: 25475368b88508f478185f37c42eef79, type: 3}
   m_PrefabInstance: {fileID: 1043134852}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1047052538 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1541406542678046701, guid: a4c43bf8901061a40a02054aba85ff81, type: 3}
-  m_PrefabInstance: {fileID: 377057183}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1055192626
 PrefabInstance:
@@ -50261,7 +50241,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 853601435593707634, guid: cb4ccf1fc7beb23429d019bfbd2e8733, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.415
       objectReference: {fileID: 0}
     - target: {fileID: 853601435593707634, guid: cb4ccf1fc7beb23429d019bfbd2e8733, type: 3}
       propertyPath: m_LocalPosition.y

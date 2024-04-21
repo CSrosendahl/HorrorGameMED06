@@ -1,9 +1,10 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : NetworkBehaviour
 {
 
     private CinemachineVirtualCamera CVC;
@@ -19,20 +20,24 @@ public class PlayerManager : MonoBehaviour
     public bool hasBuff;
     
 
-    private void Awake()
+ 
+    private void Start()
     {
-        CVC = FindAnyObjectByType<CinemachineVirtualCamera>();
-        cinemachine3RdPersonFollow = CVC.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
+        if(CVC == null)
+        {
+            CVC = FindAnyObjectByType<CinemachineVirtualCamera>();
+            cinemachine3RdPersonFollow = CVC.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
+        }
+       
 
-        if(isMonster)
+        if (isMonster)
         {
             cinemachine3RdPersonFollow.ShoulderOffset.y = shoulderOffset;
         }
-        else if(isHuman)
+        else if (isHuman)
         {
             cinemachine3RdPersonFollow.ShoulderOffset.y = shoulderOffset;
         }
     }
 
-  
 }
