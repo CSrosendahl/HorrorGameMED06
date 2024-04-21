@@ -8,6 +8,8 @@ public class CharacterSpawner : NetworkBehaviour
 {
     [Header("References")]
     [SerializeField] private CharacterDatabase characterDatabase;
+    [SerializeField] private Transform HumanSpawnPoint; // Human spawn point. Assign in inspector
+    [SerializeField] private Transform MonsterSpawnPoint; // Monster spawn point. Assign in inspector
 
     private void Start()
     {
@@ -18,13 +20,22 @@ public class CharacterSpawner : NetworkBehaviour
             var character = characterDatabase.GetCharacterById(client.Value.characterId);
             if (character != null)
             {
-                var spawnPos = new Vector3(Random.Range(0f, 0f), 0f, Random.Range(0f, 0f));
-                var characterInstance = Instantiate(character.GameplayPrefab, spawnPos, Quaternion.identity);
-                characterInstance.SpawnAsPlayerObject(client.Value.clientId);
-
+                // Assign spawn point based on character's isHuman flag
+                if (character.IsHuman) //are we human?
+                {
+                    var characterInstance = Instantiate(character.GameplayPrefab, HumanSpawnPoint.position, Quaternion.identity);
+                    characterInstance.SpawnAsPlayerObject(client.Value.clientId);
+                }
+                else if (character.IsMonster) //or are we Dancer?
+                {
+                    var characterInstance = Instantiate(character.GameplayPrefab, MonsterSpawnPoint.position, Quaternion.identity);
+                    characterInstance.SpawnAsPlayerObject(client.Value.clientId);
+                }
+                // Add more conditions for different character types if needed
             }
         }
     }
+
 
   
 }
