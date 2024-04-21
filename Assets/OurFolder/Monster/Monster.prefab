@@ -2635,7 +2635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3312238727
+  GlobalObjectIdHash: 2716595249
   InScenePlacedSourceGlobalObjectIdHash: 2716595249
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -2919,7 +2919,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shoulderOffset: 0.5
   isHuman: 0
-  isMonster: 0
+  isMonster: 1
+  hasInvis: 0
+  hasKey: 0
+  hasBuff: 0
 --- !u!1 &7741009915430294880
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ namespace StarterAssets
         public float MoveSpeed = 2.0f;
         public bool isSneaking = false;
 
+
         [Tooltip("Sprint speed of the character in m/s")]
         public float SprintSpeed = 5.335f;
         public float SneakSpeed = 0.5f;
@@ -179,6 +180,8 @@ namespace StarterAssets
             {
                 _playerInput = GetComponent<PlayerInput>();
                 _playerInput.enabled = true;
+            
+
                 CVC.Follow = transform.GetChild(0);
 
 

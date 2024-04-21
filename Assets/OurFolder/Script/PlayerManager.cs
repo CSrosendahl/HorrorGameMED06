@@ -18,26 +18,32 @@ public class PlayerManager : NetworkBehaviour
     public bool hasInvis;
     public bool hasKey;
     public bool hasBuff;
-    
 
- 
+
+
     private void Start()
     {
-        if(CVC == null)
+        if (CVC == null)
         {
             CVC = FindAnyObjectByType<CinemachineVirtualCamera>();
             cinemachine3RdPersonFollow = CVC.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
         }
-       
+        if (IsClient && IsOwner)
+        {
+            {
+                if (isHuman)
+                {
+                    cinemachine3RdPersonFollow.ShoulderOffset = new Vector3(0, shoulderOffset, 0);
+                }
+                else if (isMonster)
+                {
+                    cinemachine3RdPersonFollow.ShoulderOffset = new Vector3(0, shoulderOffset, 0);
+                }
+            }
+        }
 
-        if (isMonster)
-        {
-            cinemachine3RdPersonFollow.ShoulderOffset.y = shoulderOffset;
-        }
-        else if (isHuman)
-        {
-            cinemachine3RdPersonFollow.ShoulderOffset.y = shoulderOffset;
-        }
+
+
     }
 
 }
