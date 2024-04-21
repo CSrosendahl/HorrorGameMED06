@@ -72,7 +72,7 @@ public class TestRelay : MonoBehaviour
                joinAllocation.HostConnectionData);
 
             NetworkManager.Singleton.StartClient();
-            NetworkManager.Singleton.NetworkConfig.PlayerPrefab = Resources.Load("Monster") as GameObject;
+          //  NetworkManager.Singleton.NetworkConfig.PlayerPrefab = Resources.Load("Monster") as GameObject;
           
 
         }

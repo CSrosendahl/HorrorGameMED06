@@ -16,8 +16,8 @@ public class ThrowObjectScript : NetworkBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Check if the object hits something
-        if (collision.gameObject.CompareTag("Ground")) // Assuming the ground has the tag "Ground"
-        {
+
+        Debug.Log("We hit: " + collision.gameObject.name);
             // Play the hit sound
             if (hitSoundClip != null && playSound) 
             {
@@ -25,7 +25,7 @@ public class ThrowObjectScript : NetworkBehaviour
                 playSound = false;
                 StartCoroutine(WaitToDestroy());
             }
-        }
+        
     }
 
     IEnumerator WaitToDestroy()

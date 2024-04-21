@@ -87,7 +87,15 @@ namespace StarterAssets
         }
         public void OnF()
         {
-            monsterAbility.MonsterScream();
+            if (monsterAbility != null)
+            {
+                monsterAbility.MonsterScream();
+            }
+            if (humanAbility != null)
+            {
+               //
+            }
+
             Debug.Log("F pressed");
 
         }

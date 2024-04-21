@@ -1,3 +1,4 @@
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -24,11 +25,13 @@ public class CharacterSpawner : NetworkBehaviour
                 {
                     var characterInstance = Instantiate(character.GameplayPrefab, HumanSpawnPoint.position, Quaternion.identity);
                     characterInstance.SpawnAsPlayerObject(client.Value.clientId);
+                  
                 }
                 else if (character.IsMonster) //Its a monster!
                 {
                     var characterInstance = Instantiate(character.GameplayPrefab, MonsterSpawnPoint.position, Quaternion.identity);
                     characterInstance.SpawnAsPlayerObject(client.Value.clientId);
+                  
                 }
 
             }

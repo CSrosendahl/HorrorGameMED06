@@ -7,8 +7,9 @@ using UnityEngine;
 public class HumanAbility : NetworkBehaviour
 {
     public Animator humanAnimator;
-    public GameObject throwPrefab;
+    public GameObject[] throwPrefabs;
     public ThirdPersonController controller;
+    public PlayerManager playerManager;
     private float startMovementSpeed;
     private float startSprintMovementSpeed;
     private float startJumpHeight;
@@ -21,14 +22,14 @@ public class HumanAbility : NetworkBehaviour
 
 
     public Transform firePoint;
-    public float throwForce = 25f;
+    public float throwForce = 35f;
 
     private void Start()
     {
         startMovementSpeed = controller.MoveSpeed;
         startSprintMovementSpeed = controller.SprintSpeed;
         startJumpHeight = controller.JumpHeight;
-       // StartCoroutine(TestQuick());
+      
 
 
     }
@@ -36,6 +37,9 @@ public class HumanAbility : NetworkBehaviour
     // This is being called as an animation event. It is not being called by the player's input. Humanthrow is
     public void Throw()
     {
+        // Get a random throw object
+        GameObject throwPrefab = throwPrefabs[Random.Range(0, throwPrefabs.Length)];
+
         GameObject throwObject = Instantiate(throwPrefab, firePoint.position, firePoint.rotation);
         Rigidbody rb = throwObject.GetComponent<Rigidbody>();
         rb.isKinematic = false;
@@ -62,6 +66,8 @@ public class HumanAbility : NetworkBehaviour
         {
             mesh.material = invisMaterial;
         }
+
+        StartCoroutine(ReturnVisibleAfterXTime(10f));
 
 
     }
@@ -93,9 +99,27 @@ public class HumanAbility : NetworkBehaviour
         
     }
 
-    IEnumerator TestQuick()
+    public void ShrinkCharacter()
     {
-        yield return new WaitForSeconds(2);
-        BecomeInvisible();
+        transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        StartCoroutine(ReturnToNormalSizeAfterXTime(10f));
+    }
+    public void UnShrinkCharacter()
+    {
+
+        transform.localScale = new Vector3(1f, 1f, 1f);
+
+    }
+
+    IEnumerator ReturnToNormalSizeAfterXTime(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        UnShrinkCharacter();
+    }
+
+    IEnumerator ReturnVisibleAfterXTime(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        ReturnVisible();
     }
 }

@@ -557,9 +557,10 @@ GameObject:
   - component: {fileID: 3028586991346727128}
   - component: {fileID: 8424312584252434207}
   - component: {fileID: 4807195994029569599}
+  - component: {fileID: 3939719471475533369}
   m_Layer: 8
   m_Name: Human_0
-  m_TagString: Human
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -646,7 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1916400138
+  GlobalObjectIdHash: 483236142
   InScenePlacedSourceGlobalObjectIdHash: 1534543948
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -698,6 +699,7 @@ MonoBehaviour:
     m_Bits: 1
   CinemachineCameraTarget: {fileID: 5249489964807039380}
   CVC: {fileID: 0}
+  cinemachine3RdPersonFollow: {fileID: 0}
   TopClamp: 70
   BottomClamp: -30
   CameraAngleOverride: 0
@@ -910,8 +912,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   humanAnimator: {fileID: 739929677869316916}
-  throwPrefab: {fileID: 6480153546754188087, guid: 0e91ac45de6c1b645bb197da49a6dfa1, type: 3}
+  throwPrefabs:
+  - {fileID: 1324386864335381736, guid: 3042f45a25161514abff13f9f2999eb5, type: 3}
+  - {fileID: 616829061822176990, guid: 96222c8650af6a64b87c4611ab9f3c6c, type: 3}
+  - {fileID: 4826458757562035915, guid: e79c547dc9d224e4d88442cff041b377, type: 3}
+  - {fileID: 1596857749846925853, guid: 877a9799eae25e742a37368e59837413, type: 3}
+  - {fileID: 7671670257535964396, guid: da5a02ef6c81ac34abed2c5d21c94c32, type: 3}
+  - {fileID: 1408556004986465884, guid: e5e299c1e228d5a49b85bc6f7f013471, type: 3}
+  - {fileID: 4623392643025116485, guid: a43570e10a10f6246821a9bb3fa55ef3, type: 3}
+  - {fileID: 1425588796310928600, guid: f251e5d16eb9e4f45ab21caae65cfed4, type: 3}
   controller: {fileID: 3943249140698515553}
+  playerManager: {fileID: 3939719471475533369}
   humanClothesMat: {fileID: 2100000, guid: 09adb11e217d8864fb3a0900b08b717a, type: 2}
   humanHairMat: {fileID: 2100000, guid: d949b6f74b13b1d43a33115c533fb818, type: 2}
   invisMaterial: {fileID: 2100000, guid: 70d0bcde7d435e84cb8e704d6ae75ccf, type: 2}
@@ -955,6 +966,24 @@ MonoBehaviour:
   isShaking: 0
   noiseShakeProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   noiseStandardProfile: {fileID: 11400000, guid: 46965f9cbaf525742a6da4c2172a99cd, type: 2}
+--- !u!114 &3939719471475533369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579079058336339206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a7bf40484528f4fb50a595cd586094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shoulderOffset: 0.2
+  isHuman: 1
+  isMonster: 0
+  hasInvis: 0
+  hasKey: 0
+  hasBuff: 0
 --- !u!1 &1732172297555312009
 GameObject:
   m_ObjectHideFlags: 0
@@ -2750,7 +2779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1916400138
+  GlobalObjectIdHash: 443955838
   InScenePlacedSourceGlobalObjectIdHash: 1534543948
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1

@@ -68,6 +68,9 @@ namespace StarterAssets
         public GameObject CinemachineCameraTarget;
 
         [SerializeField] private CinemachineVirtualCamera CVC;
+        [SerializeField] private Cinemachine3rdPersonFollow cinemachine3RdPersonFollow;
+
+
 
         [Tooltip("How far in degrees can you move the camera up")]
         public float TopClamp = 70.0f;
@@ -84,7 +87,9 @@ namespace StarterAssets
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
-     
+
+        
+
 
         // player
         private float _speed;
@@ -141,6 +146,7 @@ namespace StarterAssets
             if (CVC == null)
             {
                 CVC = FindAnyObjectByType<CinemachineVirtualCamera>();
+         
             }
         }
 

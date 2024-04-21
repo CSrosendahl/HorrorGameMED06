@@ -2547,6 +2547,7 @@ GameObject:
   - component: {fileID: 6675191465258950193}
   - component: {fileID: 6412610074079579311}
   - component: {fileID: 7614204958537996164}
+  - component: {fileID: 8504194127677785459}
   m_Layer: 8
   m_Name: Monster
   m_TagString: Player
@@ -2634,7 +2635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2716595249
+  GlobalObjectIdHash: 3312238727
   InScenePlacedSourceGlobalObjectIdHash: 2716595249
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -2686,6 +2687,7 @@ MonoBehaviour:
     m_Bits: 1
   CinemachineCameraTarget: {fileID: 2994565086868098306}
   CVC: {fileID: 0}
+  cinemachine3RdPersonFollow: {fileID: 0}
   TopClamp: 70
   BottomClamp: -30
   CameraAngleOverride: 0
@@ -2903,6 +2905,21 @@ MonoBehaviour:
   monsterAnim: {fileID: 3863482738368046087}
   controller: {fileID: 2185441865574393769}
   screamTrigger: {fileID: 107284535861664002}
+--- !u!114 &8504194127677785459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7589865105009220700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a7bf40484528f4fb50a595cd586094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shoulderOffset: 0.5
+  isHuman: 0
+  isMonster: 0
 --- !u!1 &7741009915430294880
 GameObject:
   m_ObjectHideFlags: 0

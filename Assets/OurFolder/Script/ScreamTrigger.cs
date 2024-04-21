@@ -14,20 +14,25 @@ public class ScreamTrigger : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Human"))
+        if(other.GetComponent<PlayerManager>() != null)
         {
-            Debug.Log("Human was within the scream trigger");
-            // Do something here
-            if(other != null && other.GetComponent<AffectedByScream>() != null)
+            PlayerManager playerManager = other.GetComponent<PlayerManager>();
+
+            if(playerManager.isHuman)
             {
-                if (!hasScreamed)
+                Debug.Log("Human was within the scream trigger");
+                // Do something here
+                if (other.GetComponent<AffectedByScream>() != null)
                 {
-                    other.GetComponent<AffectedByScream>().ScreamEffect();
-                    hasScreamed = true;
-                    StartCoroutine(ScreamCoolDown());
+                    if (!hasScreamed)
+                    {
+                        other.GetComponent<AffectedByScream>().ScreamEffect();
+                        hasScreamed = true;
+                        StartCoroutine(ScreamCoolDown());
+                    }
                 }
             }
-           
+
            
         }
     }

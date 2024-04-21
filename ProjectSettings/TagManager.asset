@@ -9,6 +9,7 @@ TagManager:
   - Anchor
   - Human
   - Ground
+  - Monster
   layers:
   - Default
   - TransparentFX
