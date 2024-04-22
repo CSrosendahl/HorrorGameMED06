@@ -8,15 +8,16 @@ public class WeatherScript : NetworkBehaviour
     public float flashDuration = 0.1f;
     public float flashIntensity = 100f;
     public AudioSource thunderAudioSource;
-    public AudioSource rainAudioSource;
+
     public AudioClip thunderClip;
-    public AudioClip rainClip;
+    //  public AudioSource rainAudioSource;
+    //  public AudioClip rainClip;
     public bool thunderPlayed;
 
     public bool playWeatherEffects;
     private void Start()
     {
-        playWeatherEffects = true;
+        playWeatherEffects = true; // Set this to false when to disable weathereffects
         thunderPlayed = false;
         StartCoroutine(RandomLightningStrike());
     }

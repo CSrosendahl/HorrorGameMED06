@@ -38123,9 +38123,7 @@ MonoBehaviour:
   flashDuration: 0.4
   flashIntensity: 100
   thunderAudioSource: {fileID: 1336053611}
-  rainAudioSource: {fileID: 1336053612}
   thunderClip: {fileID: 8300000, guid: a84bccf00b32eaf42b2121c393494f6c, type: 3}
-  rainClip: {fileID: 0}
   thunderPlayed: 0
   playWeatherEffects: 0
 --- !u!4 &1336053610
