@@ -10,6 +10,7 @@ public class WeatherScript : NetworkBehaviour
     public AudioSource thunderAudioSource;
     public AudioSource rainAudioSource;
     public AudioClip thunderClip;
+    public AudioClip rainClip;
     public bool thunderPlayed;
 
     public bool playWeatherEffects;
