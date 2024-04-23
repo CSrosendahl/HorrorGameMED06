@@ -2,22 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using UnityEngine.InputSystem;
 
 public class ChestOpener : NetworkBehaviour
 {
     public Animator animator; // Reference to the animator component
+    public GameObject keyGO;
 
+    public bool hasKey;
+    public bool wasOpened;
+
+
+    private void Start()
+    {
+        keyGO.SetActive(false);
+        wasOpened = false;
+    }
     void OnTriggerEnter(Collider other)
     {
         // Check if the object entering the collider is tagged as "Human"
-        if (other.CompareTag("Human"))
+        if (other.CompareTag("Human") && !wasOpened)
         {
-            // Check if the "F" key is pressed
-            if (Input.GetKeyDown(KeyCode.F))
+
+            //Keyboard kb = InputSystem.GetDevice<Keyboard>();
+
+            //if(kb.eKey.wasPressedThisFrame)
+            //{
+            //    OpenChestServerRpc();
+            //}
+
+            OpenChestServerRpc();
+
+           
+            if(hasKey)
             {
-                // Call the OpenChest method on the server
-                OpenChestServerRpc();
+                other.GetComponent<HumanAbility>().OpenChest();
+                other.GetComponent<GrabKey>().keyOnHuman.SetActive(true);
             }
+          
+            Debug.Log("Inside trigger");
+
+      
         }
     }
 
@@ -34,6 +59,21 @@ public class ChestOpener : NetworkBehaviour
     void OpenChestClientRpc()
     {
         // Trigger the animation on all clients
-        animator.SetTrigger("Open"); // Assumes you have a trigger parameter named "Open" in your animator controller
+        animator.Play("ChestOpen");
+        if (hasKey)
+        {
+           
+            keyGO.SetActive(true);
+            StartCoroutine(WaitForAnimation());
+        }
+        wasOpened = true;
+    }
+
+    IEnumerator WaitForAnimation()
+    {
+        
+        yield return new WaitForSeconds(3.0f);
+        keyGO.SetActive(false);
+
     }
 }

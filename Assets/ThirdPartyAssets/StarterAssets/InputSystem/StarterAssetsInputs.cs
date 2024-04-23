@@ -97,8 +97,12 @@ namespace StarterAssets
             }
 
             Debug.Log("F pressed");
-
         }
+        //public void OnE()
+        //{    
+
+        //    Debug.Log("E pressed");
+        //}
 
 
 

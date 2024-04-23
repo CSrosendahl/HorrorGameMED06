@@ -59,6 +59,16 @@ public class HumanAbility : NetworkBehaviour
     
     }
 
+    public void OpenChest()
+    {
+       
+        humanAnimator.Play("OpenChest");
+        FreezeMovement();
+        StartCoroutine(WaitXTime(9.15f));
+        Debug.Log("Human is opening chest");
+    
+    }
+
     public void BecomeInvisible()
     {
 
@@ -89,6 +99,17 @@ public class HumanAbility : NetworkBehaviour
         controller.MoveSpeed = 0;
         controller.SprintSpeed = 0;
         controller.JumpHeight = 0;
+    }
+    public void FreezeRotation()
+    {
+        controller.RotationSmoothTime = 0;
+       
+    }
+    public void UnFreezeRotation()
+    {
+       
+        controller.RotationSmoothTime = 0.12f;
+    
     }
 
     public void UnFreezeMovement()
@@ -121,5 +142,12 @@ public class HumanAbility : NetworkBehaviour
     {
         yield return new WaitForSeconds(duration);
         ReturnVisible();
+    }
+    IEnumerator WaitXTime(float duration)
+    {
+        
+        yield return new WaitForSeconds(duration);
+        UnFreezeMovement();
+    
     }
 }
