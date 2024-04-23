@@ -28,10 +28,10 @@ public class CharacterSpawner : NetworkBehaviour
                 }
                 else if (character.IsMonster) //or are we Dancer?
                 {
-                    var characterInstance = Instantiate(character.GameplayPrefab, MonsterSpawnPoint.position, Quaternion.identity);
+                    var characterInstance = Instantiate(character.GameplayPrefab, MonsterSpawnPoint.position, MonsterSpawnPoint.rotation);
                     characterInstance.SpawnAsPlayerObject(client.Value.clientId);
                 }
-                // Add more conditions for different character types if needed
+               
             }
         }
     }
