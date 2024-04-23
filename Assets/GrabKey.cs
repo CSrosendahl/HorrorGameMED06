@@ -44,8 +44,7 @@ public class GrabKey : NetworkBehaviour
         // Check if the object exiting the trigger is tagged as "Key"
         if (other.CompareTag("Key"))
         {
-            // Reset keyGrapped state if the player leaves the trigger without grabbing the key
-            keyGrapped = false;
+           
         }
     }
 
@@ -56,6 +55,7 @@ public class GrabKey : NetworkBehaviour
         {
             // Set keyGrapped to true to indicate that the key has been grabbed
             keyGrapped = true;
+            Debug.Log("Key grabbed");
 
             // Call the server method to handle key grabbing
             OnEPressedServerRPC(collidedKey.GetComponent<NetworkObject>().NetworkObjectId);

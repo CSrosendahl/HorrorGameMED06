@@ -33,7 +33,8 @@ public class ExitDoor : NetworkBehaviour
     {
         GrabKey grabKeyScript = other.GetComponent<GrabKey>();
         Debug.Log("Object hit door" + other.tag);
-        if (other.CompareTag("Human") && grabKeyScript != null && grabKeyScript.keyGrapped)
+        Debug.Log("Key grabbed state: " + grabKeyScript.keyGrapped);
+        if (other.CompareTag("Human") && grabKeyScript != null && grabKeyScript.keyGrapped == true)
         {
             FreezeTime();
             HumanWinUI.SetActive(true);
