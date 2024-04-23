@@ -10,7 +10,7 @@ public class GrabKey : NetworkBehaviour
 
     private InputAction eAction;
 
-    private bool keyGrapped = false;
+    public bool keyGrapped = false;
 
     private GameObject collidedKey;
 
@@ -24,6 +24,7 @@ public class GrabKey : NetworkBehaviour
         // Add a listener to the 'E' action
         eAction.performed += ctx => OnEPressed();
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -60,6 +61,7 @@ public class GrabKey : NetworkBehaviour
             OnEPressedServerRPC(collidedKey.GetComponent<NetworkObject>().NetworkObjectId);
         }
     }
+ 
 
     [ServerRpc]
     private void OnEPressedServerRPC(ulong networkObjectId)
@@ -69,6 +71,8 @@ public class GrabKey : NetworkBehaviour
 
         // Destroy the key object on the server
         NetworkObject.Destroy(keyObject.gameObject);
+
+        
 
         // Activate the key on the player
         keyOnHuman.SetActive(true);
@@ -83,8 +87,12 @@ public class GrabKey : NetworkBehaviour
         // Find the key object by network object ID
         var keyObject = NetworkManager.Singleton.SpawnManager.SpawnedObjects[networkObjectId];
 
+       
+
         // Activate the key on the player
         keyOnHuman.SetActive(true);
         NetworkObject.Destroy(keyObject.gameObject);
     }
+
+   
 }
