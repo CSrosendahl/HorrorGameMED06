@@ -34,7 +34,7 @@ public class EnterCastle : NetworkBehaviour
         }
         else if (other.CompareTag("Monster") && !hasPlayed)
         {
-            Debug.Log("Player entered the castle");
+            Debug.Log("Monster entered the castle");
             other.transform.position = SpawnMonsterCaste.position;
            
         }
