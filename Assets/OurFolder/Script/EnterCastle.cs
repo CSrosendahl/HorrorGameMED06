@@ -7,6 +7,7 @@ public class EnterCastle : NetworkBehaviour
 {
 
     public Transform spawnEntranceCastle;
+    public Transform SpawnMonsterCaste;
     public AudioSource audioSource;
     public AudioClip openDoorClip;
     public bool hasPlayed;
@@ -24,12 +25,18 @@ public class EnterCastle : NetworkBehaviour
         if (other.CompareTag("Human") && !hasPlayed)
         {
             Debug.Log("Player entered the castle");
-          //  other.transform.position = spawnEntranceCastle.position;
+           
             audioSource.clip= openDoorClip;
             audioSource.Play();
             hasPlayed = true;
             StartCoroutine(WaitToEnterAfterKnock(other));
             StartCoroutine(ResetHasPlayed());
+        }
+        else if (other.CompareTag("Monster") && !hasPlayed)
+        {
+            Debug.Log("Player entered the castle");
+            other.transform.position = SpawnMonsterCaste.position;
+           
         }
     }
 
