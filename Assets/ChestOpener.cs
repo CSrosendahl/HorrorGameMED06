@@ -38,6 +38,7 @@ public class ChestOpener : NetworkBehaviour
             {
                 other.GetComponent<HumanAbility>().OpenChest();
                 other.GetComponent<GrabKey>().keyOnHuman.SetActive(true);
+                other.GetComponent<GrabKey>().keyGrapped = false;
             }
           
             Debug.Log("Inside trigger");
