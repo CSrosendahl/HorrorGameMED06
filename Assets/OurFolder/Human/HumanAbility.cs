@@ -63,6 +63,7 @@ public class HumanAbility : NetworkBehaviour
     {
        
         humanAnimator.Play("OpenChest");
+     
         FreezeMovement();
         StartCoroutine(WaitXTime(9.15f));
         Debug.Log("Human is opening chest");
@@ -100,17 +101,7 @@ public class HumanAbility : NetworkBehaviour
         controller.SprintSpeed = 0;
         controller.JumpHeight = 0;
     }
-    public void FreezeRotation()
-    {
-        controller.RotationSmoothTime = 0;
-       
-    }
-    public void UnFreezeRotation()
-    {
-       
-        controller.RotationSmoothTime = 0.12f;
-    
-    }
+  
 
     public void UnFreezeMovement()
     {
@@ -148,6 +139,7 @@ public class HumanAbility : NetworkBehaviour
         
         yield return new WaitForSeconds(duration);
         UnFreezeMovement();
+       
     
     }
 }
