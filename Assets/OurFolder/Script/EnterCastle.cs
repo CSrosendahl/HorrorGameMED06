@@ -24,9 +24,11 @@ public class EnterCastle : NetworkBehaviour
         if (other.CompareTag("Human") && !hasPlayed)
         {
             Debug.Log("Player entered the castle");
-            other.transform.position = spawnEntranceCastle.position;
-            AudioSource.PlayClipAtPoint(openDoorClip, this.transform.position);
+          //  other.transform.position = spawnEntranceCastle.position;
+            audioSource.clip= openDoorClip;
+            audioSource.Play();
             hasPlayed = true;
+            StartCoroutine(WaitToEnterAfterKnock(other));
             StartCoroutine(ResetHasPlayed());
         }
     }
@@ -44,5 +46,14 @@ public class EnterCastle : NetworkBehaviour
 
         weatherScript.playWeatherEffects = false;
         IntroEntrance.SetActive(false);
+    }
+
+    IEnumerator WaitToEnterAfterKnock(Collider other)
+    {
+        
+        yield return new WaitForSeconds(1.5f);
+
+        other.transform.position = spawnEntranceCastle.position;
+
     }
 }
