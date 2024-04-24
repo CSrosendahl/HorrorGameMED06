@@ -2928,7 +2928,7 @@ MonoBehaviour:
   monsterAnim: {fileID: 3863482738368046087}
   controller: {fileID: 2185441865574393769}
   screamTrigger: {fileID: 107284535861664002}
-  monsterCaughtText: {fileID: 0}
+  monsterCaughtText: {fileID: 6607358913678572225, guid: 29fcf53faa47d1d4f9a21364d9d294aa, type: 3}
 --- !u!114 &8504194127677785459
 MonoBehaviour:
   m_ObjectHideFlags: 0
