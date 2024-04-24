@@ -29,7 +29,10 @@ public class EnterCastle : NetworkBehaviour
             audioSource.clip= openDoorClip;
             audioSource.Play();
             hasPlayed = true;
+            
             StartCoroutine(WaitToEnterAfterKnock(other));
+            weatherScript.rainAudioSource.volume = 0.1f;
+            weatherScript.rainAudioSource.spatialBlend = 0.5f;
             StartCoroutine(ResetHasPlayed());
         }
         else if (other.CompareTag("Monster") && !hasPlayed)

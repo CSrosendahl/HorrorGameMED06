@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 using UnityEngine.InputSystem;
+using StarterAssets;
 
 public class ChestOpener : NetworkBehaviour
 {
@@ -37,8 +38,11 @@ public class ChestOpener : NetworkBehaviour
             if(hasKey)
             {
                 other.GetComponent<HumanAbility>().OpenChest();
+                other.GetComponent<ThirdPersonController>().enabled = false;
+              
                 other.GetComponent<GrabKey>().keyOnHuman.SetActive(true);
                 other.GetComponent<GrabKey>().keyGrapped = false;
+                StartCoroutine(ReEnableControls(other));
             }
           
             Debug.Log("Inside trigger");
@@ -76,5 +80,11 @@ public class ChestOpener : NetworkBehaviour
         yield return new WaitForSeconds(3.0f);
         keyGO.SetActive(false);
 
+    }
+    IEnumerator ReEnableControls(Collider other)
+    {
+        
+        yield return new WaitForSeconds(9.0f);
+        other.GetComponent<ThirdPersonController>().enabled = true;
     }
 }
