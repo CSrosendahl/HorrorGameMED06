@@ -19,7 +19,7 @@ public class MatchplayNetworkClient : IDisposable
 
     private DisconnectReason DisconnectReason { get; } = new DisconnectReason();
 
-    private const string MenuSceneName = "Main Menu";
+    private const string MenuSceneName = "MainMenu";
 
     public MatchplayNetworkClient()
     {
@@ -145,7 +145,7 @@ public class MatchplayNetworkClient : IDisposable
         // Take client back to the main menu if they aren't already there
         if (SceneManager.GetActiveScene().name != MenuSceneName)
         {
-            SceneManager.LoadScene(MenuSceneName);
+            SceneManager.LoadScene(1);
         }
 
         // If we are already on the main menu then it means we timed-out
