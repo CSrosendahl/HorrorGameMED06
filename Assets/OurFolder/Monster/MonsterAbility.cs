@@ -1,8 +1,9 @@
 using StarterAssets;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Netcode;
 using UnityEngine;
+using Unity.Netcode;
+using UnityEngine.UI;
+using TMPro;
 
 public class MonsterAbility : NetworkBehaviour
 {
@@ -13,21 +14,17 @@ public class MonsterAbility : NetworkBehaviour
     private float startJumpHeight;
 
     public Collider screamTrigger;
+    public TMP_Text monsterCaughtText; // Reference to the UI Text component
 
-    
     private void Start()
     {
-
         startMovementSpeed = controller.MoveSpeed;
         startSprintMovementSpeed = controller.SprintSpeed;
         startJumpHeight = controller.JumpHeight;
         monsterAnim = GetComponent<Animator>();
         screamTrigger.enabled = false;
-
-
-
+        monsterCaughtText.enabled = false; // Initially hide the UI Text
     }
-
 
     public void MonsterReach()
     {
@@ -42,15 +39,21 @@ public class MonsterAbility : NetworkBehaviour
         screamTrigger.enabled = true;
         StartCoroutine(WaitToUnfreeze(2.15f));
         Debug.Log("Monster is screaming");
+
+       
+     
+    }
+
+    [ClientRpc]
+    private void RpcEnableMonsterCaughtTextClientRpc()
+    {
+        monsterCaughtText.enabled = true;
     }
 
     IEnumerator WaitToUnfreeze(float wait)
     {
-        
         yield return new WaitForSeconds(wait);
         UnFreezeMovement();
-
-
     }
 
     public void UnFreezeMovement()
@@ -70,12 +73,11 @@ public class MonsterAbility : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Human"))
+        if (IsServer && other.gameObject.CompareTag("Human")) // Only execute on the server
         {
-
-           Debug.Log("Monster is hitting human");
-
+            Debug.Log("Monster is hitting human");
+            // Call Rpc to enable UI Text on all clients
+            RpcEnableMonsterCaughtTextClientRpc();
         }
     }
-
 }
