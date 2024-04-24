@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 266134316
-  InScenePlacedSourceGlobalObjectIdHash: 1439038778
+  GlobalObjectIdHash: 327089892
+  InScenePlacedSourceGlobalObjectIdHash: 1734106851
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 3190209934332934017}
   - component: {fileID: 1491051423099610781}
   - component: {fileID: 887118712630606323}
+  - component: {fileID: 5221303251753543699}
   m_Layer: 0
   m_Name: RedChest
   m_TagString: Untagged
@@ -138,7 +139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6572799845880234067}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7059105, z: -0, w: 0.708301}
+  m_LocalRotation: {x: 0, y: 0.70590866, z: 0, w: 0.7083029}
   m_LocalPosition: {x: 355.586, y: -3.0340002, z: -52.607}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
@@ -230,8 +231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 5955936
-  InScenePlacedSourceGlobalObjectIdHash: 1439038778
+  GlobalObjectIdHash: 846071103
+  InScenePlacedSourceGlobalObjectIdHash: 1734106851
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -348,6 +349,28 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!64 &5221303251753543699
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6572799845880234067}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: cf4e4001baad0cc47bac29f6764d7587, type: 3}
 --- !u!1001 &6918932395324243535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -358,11 +381,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1008464326460957276, guid: 0d20e1d66b73cd747922d8c2aa19b159, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 204696509
+      value: 2235302226
       objectReference: {fileID: 0}
     - target: {fileID: 1008464326460957276, guid: 0d20e1d66b73cd747922d8c2aa19b159, type: 3}
       propertyPath: InScenePlacedSourceGlobalObjectIdHash
-      value: 1439038778
+      value: 1734106851
       objectReference: {fileID: 0}
     - target: {fileID: 4033912322188179375, guid: 0d20e1d66b73cd747922d8c2aa19b159, type: 3}
       propertyPath: m_Name

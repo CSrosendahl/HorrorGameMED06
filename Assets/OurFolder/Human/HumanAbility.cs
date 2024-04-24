@@ -23,6 +23,7 @@ public class HumanAbility : NetworkBehaviour
 
     public Transform firePoint;
     public float throwForce = 35f;
+    public bool humanHasKey;
 
     private void Start()
     {
@@ -63,7 +64,7 @@ public class HumanAbility : NetworkBehaviour
     {
        
         humanAnimator.Play("OpenChest");
-     
+        humanHasKey = true;
         FreezeMovement();
         StartCoroutine(WaitXTime(9.15f));
         Debug.Log("Human is opening chest");

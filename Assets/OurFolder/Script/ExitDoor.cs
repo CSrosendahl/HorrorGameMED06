@@ -5,29 +5,46 @@ using Unity.Netcode;
 
 public class ExitDoor : NetworkBehaviour
 {
- 
     public GameObject HumanWinUI;
 
-
     private bool isTimeFrozen = false;
+    private bool isHumanWinUIActive = false;
 
     void Start()
     {
-       
+
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    void SetWinUIActiveServerRpc(bool isActive)
+    {
+        // Set the UI active state on the server
+        isHumanWinUIActive = isActive;
+        RpcSetWinUIActiveClientRpc(isActive);
+    }
+
+    [ClientRpc]
+    void RpcSetWinUIActiveClientRpc(bool isActive)
+    {
+        // Set the UI active state on all clients
+        HumanWinUI.SetActive(isActive);
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        GrabKey grabKeyScript = other.GetComponent<GrabKey>();
-        Debug.Log("Object hit door" + other.tag);
-        Debug.Log("Key grabbed state: " + grabKeyScript.keyGrapped);
-        if (other.CompareTag("Human") && grabKeyScript != null && grabKeyScript.keyGrapped == true)
+      
+
+        Debug.Log("Entered the trigger" + other.tag + other.GetComponent<HumanAbility>().humanHasKey);
+        bool hasKey = other.GetComponent<HumanAbility>().humanHasKey;
+
+        // Checking if the object is a Human, if they have the key, and if the key is grabbed
+        if (other.CompareTag("Human") && hasKey)
         {
             FreezeTime();
-            HumanWinUI.SetActive(true);
+            isHumanWinUIActive = true;
+            SetWinUIActiveServerRpc(true);
             Debug.Log("Key opened the door");
-        }   
-      
+        }
     }
 
     void FreezeTime()
@@ -38,5 +55,4 @@ public class ExitDoor : NetworkBehaviour
             isTimeFrozen = true;
         }
     }
-
 }

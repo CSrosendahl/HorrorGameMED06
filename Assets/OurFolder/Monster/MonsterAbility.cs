@@ -13,8 +13,12 @@ public class MonsterAbility : NetworkBehaviour
     private float startSprintMovementSpeed;
     private float startJumpHeight;
 
+    public bool HumanCaught = false;
+
     public Collider screamTrigger;
-    public GameObject monsterCaughtText; // Reference to the UI Text component
+
+    public MonsterWinUI monsterWinUI;
+
 
     private void Start()
     {
@@ -23,7 +27,9 @@ public class MonsterAbility : NetworkBehaviour
         startJumpHeight = controller.JumpHeight;
         monsterAnim = GetComponent<Animator>();
         screamTrigger.enabled = false;
-        monsterCaughtText.SetActive(false);
+        GameObject monsterWinUIGameObject = GameObject.FindObjectOfType<MonsterWinUI>().gameObject;
+        monsterWinUI = monsterWinUIGameObject.GetComponent<MonsterWinUI>();
+
     }
 
     public void MonsterReach()
@@ -44,11 +50,7 @@ public class MonsterAbility : NetworkBehaviour
      
     }
 
-    [ClientRpc]
-    private void RpcEnableMonsterCaughtTextClientRpc()
-    {
-        monsterCaughtText.SetActive(true);
-    }
+  
 
     IEnumerator WaitToUnfreeze(float wait)
     {
@@ -74,11 +76,13 @@ public class MonsterAbility : NetworkBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Monster is hitting something" + other.tag);
-        if (other.gameObject.CompareTag("Human")) // Execute for all instances
+        if (IsServer && other.gameObject.CompareTag("Human")) // Only execute on the server
         {
-            Debug.Log("Monster is hitting human");
-            // Call Rpc to enable UI Text on all clients
-            RpcEnableMonsterCaughtTextClientRpc();
+            HumanCaught = true;
+            Debug.Log(HumanCaught);
+            
+            monsterWinUI.UpdateUIOnClientsServerRpc(true);
+            
         }
     }
 }

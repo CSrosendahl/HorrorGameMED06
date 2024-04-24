@@ -46,7 +46,8 @@ public class ChestOpener : NetworkBehaviour
     }
 
     // Method to open the chest on the server and synchronize the animation
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
+
     void OpenChestServerRpc()
     {
         // Trigger the animation on the server
