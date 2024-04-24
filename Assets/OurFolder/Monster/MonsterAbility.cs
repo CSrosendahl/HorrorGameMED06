@@ -67,4 +67,15 @@ public class MonsterAbility : NetworkBehaviour
         controller.SprintSpeed = 0;
         controller.JumpHeight = 0;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Human"))
+        {
+
+           Debug.Log("Monster is hitting human");
+
+        }
+    }
+
 }

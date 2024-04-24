@@ -21,4 +21,9 @@ public class MainMenuDisplay : MonoBehaviour
         await ClientSingleton.Instance.Manager.BeginConnection(joinCodeInputField.text);
       
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

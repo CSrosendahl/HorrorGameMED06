@@ -25,13 +25,7 @@ public class ChestOpener : NetworkBehaviour
         if (other.CompareTag("Human") && !wasOpened)
         {
 
-            //Keyboard kb = InputSystem.GetDevice<Keyboard>();
-
-            //if(kb.eKey.wasPressedThisFrame)
-            //{
-            //    OpenChestServerRpc();
-            //}
-
+          
             OpenChestServerRpc();
 
            
