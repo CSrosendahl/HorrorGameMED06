@@ -1,7 +1,9 @@
+using Cinemachine;
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HumanAbility : NetworkBehaviour
@@ -13,6 +15,9 @@ public class HumanAbility : NetworkBehaviour
     private float startMovementSpeed;
     private float startSprintMovementSpeed;
     private float startJumpHeight;
+    bool isCrouching;
+
+    private Transform cameraStartPos;
 
     public Material humanClothesMat;
     public Material humanHairMat;
@@ -27,10 +32,12 @@ public class HumanAbility : NetworkBehaviour
 
     private void Start()
     {
+        isCrouching = false;
         startMovementSpeed = controller.MoveSpeed;
         startSprintMovementSpeed = controller.SprintSpeed;
         startJumpHeight = controller.JumpHeight;
-      
+
+        
 
 
     }
@@ -70,7 +77,33 @@ public class HumanAbility : NetworkBehaviour
         Debug.Log("Human is opening chest");
     
     }
-
+    public void Crouch()
+    {
+        if(!isCrouching)
+        {
+            humanAnimator.Play("Crouch");
+            controller.MoveSpeed = controller.SneakSpeed;
+            LowerCamera();
+            Debug.Log("Human is crouching");
+            isCrouching = true;
+        }
+        
+    
+    }
+    private void LowerCamera()
+    {
+        Vector3 newPosition = controller.CinemachineCameraTarget.transform.position;
+        newPosition.y -= 0.5f; // Lower the camera by 0.5 units
+        controller.CinemachineCameraTarget.transform.position = newPosition;
+    }
+    private void RaiseCamera()
+    {
+        Vector3 newPosition = controller.CinemachineCameraTarget.transform.position;
+        newPosition.y = 1.375f; // Raise the camera back to 1.375 units
+        controller.CinemachineCameraTarget.transform.position = newPosition;
+        isCrouching = false;
+        controller.MoveSpeed = startMovementSpeed;
+    }
     public void BecomeInvisible()
     {
 

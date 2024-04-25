@@ -7,8 +7,8 @@ using UnityEngine;
 public class PlayerManager : NetworkBehaviour
 {
 
-    private CinemachineVirtualCamera CVC;
-    private Cinemachine3rdPersonFollow cinemachine3RdPersonFollow;
+    public CinemachineVirtualCamera CVC;
+    public Cinemachine3rdPersonFollow cinemachine3RdPersonFollow;
    
 
     public float shoulderOffset; // 0.5f for monster, 0.2f for human is best

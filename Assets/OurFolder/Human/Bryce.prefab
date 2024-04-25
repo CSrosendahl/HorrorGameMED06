@@ -647,7 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1916400138
+  GlobalObjectIdHash: 2078638769
   InScenePlacedSourceGlobalObjectIdHash: 1534543948
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -936,6 +936,7 @@ MonoBehaviour:
   - {fileID: 1540531345223499886}
   firePoint: {fileID: 7206766232995764429}
   throwForce: 25
+  humanHasKey: 0
 --- !u!114 &8424312584252434207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -979,6 +980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39a7bf40484528f4fb50a595cd586094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CVC: {fileID: 0}
+  cinemachine3RdPersonFollow: {fileID: 0}
   shoulderOffset: 0.2
   isHuman: 1
   isMonster: 0
@@ -2757,7 +2760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1916400138
+  GlobalObjectIdHash: 2996568215
   InScenePlacedSourceGlobalObjectIdHash: 1534543948
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1

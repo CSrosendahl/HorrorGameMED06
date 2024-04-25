@@ -67,7 +67,10 @@ namespace StarterAssets
 
         public void OnZ()
         {
-          
+            if (humanAbility != null)
+            {
+                humanAbility.Crouch();
+            }
             Debug.Log("Z pressed");
 
         }
