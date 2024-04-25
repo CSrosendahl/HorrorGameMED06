@@ -103,15 +103,19 @@ public class MonsterAbility : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-       
-        if (IsServer  && other.gameObject.CompareTag("Human") && monsterIsReaching) // Only execute on the server
+        if(IsClient && IsOwner)
         {
-            HumanCaught = true;
+            if (other.gameObject.CompareTag("Human") && monsterIsReaching) // Only execute on the server
+            {
+                HumanCaught = true;
 
-            Debug.Log(HumanCaught);
-            
-            monsterWinUI.UpdateUIOnClientsServerRpc(true);
-            
+                Debug.Log(HumanCaught);
+
+                monsterWinUI.UpdateUIOnClientsServerRpc(true);
+
+            }
         }
+       
+      
     }
 }
