@@ -17,11 +17,13 @@ public class CharacterSelectDisplay : NetworkBehaviour
     [SerializeField] private TMP_Text joinCodeText;
     [SerializeField] private Button lockInButton;
     [SerializeField] private TMP_Text abilitiesDescriptionText;
+   [SerializeField] private GameObject startingText;
 
 
     private GameObject introInstance;
     private List<CharacterSelectButton> characterButtons = new List<CharacterSelectButton>();
     private NetworkList<CharacterSelectState> players;
+  
 
     private void Awake()
     {
@@ -114,11 +116,11 @@ public class CharacterSelectDisplay : NetworkBehaviour
         // Display the abilities of the selected character
         if (character.IsHuman)
         {
-            abilitiesDescriptionText.text = "You have the following human abilities:\n- Press Q To throw objects \n- Press Z to crouch \n- Press LCTRL to sneak (No footsteps)";
+            abilitiesDescriptionText.text = "You have the following human abilities:\n \n- Press Q To throw objects \n \n- Press Z to crouch \n \n- Press LCTRL to sneak (No footsteps)";
         }
         else if (character.IsMonster) // Use else if here instead of another if
         {
-            abilitiesDescriptionText.text = "You have the following monster abilities:\n- F Scream at the human 1\n- Q Grab the human";
+            abilitiesDescriptionText.text = "You have the following monster abilities:\n \n- F Scream at the human \n \n- Q Grab the human";
         }
         else
         {
@@ -194,7 +196,9 @@ public class CharacterSelectDisplay : NetworkBehaviour
             MatchplayNetworkServer.Instance.SetCharacter(player.ClientId, player.CharacterId);
         }
         //Yay the game can start!! 
+        startingText.SetActive(true);
         MatchplayNetworkServer.Instance.StartGame();
+
     }
 
     private void HandlePlayersStateChanged(NetworkListEvent<CharacterSelectState> changeEvent)

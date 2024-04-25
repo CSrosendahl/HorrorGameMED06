@@ -34,9 +34,6 @@ public class InfoUIScript : NetworkBehaviour
                 monsterUI.SetActive(false);
             }
         }
-        else
-        {
-            Debug.LogError("PlayerManager script not found in the scene.");
-        }
+       
     }
 }
