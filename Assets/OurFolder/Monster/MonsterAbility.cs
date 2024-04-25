@@ -14,7 +14,7 @@ public class MonsterAbility : NetworkBehaviour
     private float startSprintMovementSpeed;
     private float startJumpHeight;
 
-    public bool HumanCaught = false;
+    public bool HumanCaught;
 
     public Collider screamTrigger;
     public AudioClip monsterScream;
@@ -22,12 +22,13 @@ public class MonsterAbility : NetworkBehaviour
     public float screamCoolDown = 10f;
 
     public MonsterWinUI monsterWinUI;
-    public bool monsterIsReaching = false;
+    public bool monsterIsReaching;
 
     
 
     private void Start()
     {
+        HumanCaught = false;
         monsterIsReaching = false;
         canScream = true;
         startMovementSpeed = controller.MoveSpeed;
@@ -111,7 +112,7 @@ public class MonsterAbility : NetworkBehaviour
 
                 Debug.Log(HumanCaught);
 
-                monsterWinUI.UpdateUIOnClientsServerRpc(true);
+                monsterWinUI.UpdateUIOnClientsServerRpc(HumanCaught);
 
             }
         }
