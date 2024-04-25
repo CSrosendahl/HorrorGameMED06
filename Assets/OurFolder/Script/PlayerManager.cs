@@ -47,11 +47,11 @@ public class PlayerManager : NetworkBehaviour
         if (isHuman)
         {
             humanUI.SetActive(true);
-            monsterUI.SetActive(false);
+          
         }
         else
         {
-            humanUI.SetActive(false);
+           
             monsterUI.SetActive(true);
         }
 

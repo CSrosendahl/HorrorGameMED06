@@ -12,33 +12,25 @@ public class InfoUIScript : MonoBehaviour
 
     void Start()
     {
-        // Find the PlayerManager script in the scene
-
-
-        // Check if the PlayerManager script exists
-
-        // Check if the player is human or monster and show the corresponding UI
-        humanUI.SetActive(false);
-        monsterUI.SetActive(false); 
-
-
-
-    }
-
-    private void Update()
-    {
         if (humanManager.isHuman)
         {
             humanUI.SetActive(true);
             monsterUI.SetActive(false);
             Debug.Log("Human UI Active");
         }
-    
+
         else
         {
             humanUI.SetActive(false);
             monsterUI.SetActive(true);
             Debug.Log("Monster UI Active");
         }
+
+
+    }
+
+    private void Update()
+    {
+     
     }
 }
