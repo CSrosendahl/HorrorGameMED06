@@ -1,5 +1,7 @@
 using System;
 using TMPro;
+using Unity.Services.Relay;
+using Unity.Services.Relay.Models;
 using UnityEngine;
 
 public class MainMenuDisplay : MonoBehaviour
@@ -12,14 +14,30 @@ public class MainMenuDisplay : MonoBehaviour
     {
         loadingText.text = "Loading Character Selection...";
         await HostSingleton.Instance.StartHostAsync();
-       
     }
 
     public async void StartClient()
     {
-        loadingText.text = "Loading Loading Character Selection...";
-        await ClientSingleton.Instance.Manager.BeginConnection(joinCodeInputField.text);
-      
+        string joinCode = joinCodeInputField.text;
+
+        // Check if the join code is correct
+        try
+        {
+            JoinAllocation allocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
+
+            if (allocation != null)
+            {
+                loadingText.text = "Loading Character Selection...";
+                await ClientSingleton.Instance.Manager.BeginConnection(joinCode);
+            }
+           
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Wrong or No join code " + e.Message);
+            loadingText.text = "Wrong or No join code"; // Update text to indicate an error
+            loadingText.color = Color.red;
+        }
     }
 
     public void QuitGame()

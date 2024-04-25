@@ -254,7 +254,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3884397116576703875}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8485872566526434602}
+        m_TargetAssemblyTypeName: MainMenuDisplay, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3954589298943900962
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +545,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8, y: 204}
+  m_AnchoredPosition: {x: 56, y: 204}
   m_SizeDelta: {x: 585.4218, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2626235831437564377
@@ -1541,11 +1553,15 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 7461125ec591a1548883bd61123e9138, type: 3}
     - target: {fileID: 7801603426921117185, guid: 33dd972dd9bf8004b94fc0db8e9d4224, type: 3}
       propertyPath: m_Color.b
-      value: 0.3160377
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7801603426921117185, guid: 33dd972dd9bf8004b94fc0db8e9d4224, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9485681
       objectReference: {fileID: 0}
     - target: {fileID: 7801603426921117185, guid: 33dd972dd9bf8004b94fc0db8e9d4224, type: 3}
       propertyPath: m_Color.r
-      value: 0.54028153
+      value: 0.3176471
       objectReference: {fileID: 0}
     - target: {fileID: 7801603426921117246, guid: 33dd972dd9bf8004b94fc0db8e9d4224, type: 3}
       propertyPath: m_Name
