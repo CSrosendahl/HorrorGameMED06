@@ -19,6 +19,8 @@ public class PlayerManager : NetworkBehaviour
     public bool hasKey;
     public bool hasBuff;
 
+    public GameObject humanUI;
+    public GameObject monsterUI;
 
 
     private void Start()
@@ -40,6 +42,17 @@ public class PlayerManager : NetworkBehaviour
                     cinemachine3RdPersonFollow.ShoulderOffset = new Vector3(0, shoulderOffset, 0);
                 }
             }
+        }
+
+        if (isHuman)
+        {
+            humanUI.SetActive(true);
+            monsterUI.SetActive(false);
+        }
+        else
+        {
+            humanUI.SetActive(false);
+            monsterUI.SetActive(true);
         }
 
 
