@@ -82,7 +82,7 @@ public class HumanAbility : NetworkBehaviour
         if(!isCrouching)
         {
             humanAnimator.Play("Crouch");
-            controller.MoveSpeed = controller.SneakSpeed;
+            controller.enabled = false;
             LowerCamera();
             Debug.Log("Human is crouching");
             isCrouching = true;
@@ -99,10 +99,10 @@ public class HumanAbility : NetworkBehaviour
     private void RaiseCamera()
     {
         Vector3 newPosition = controller.CinemachineCameraTarget.transform.position;
-        newPosition.y = 1.375f; // Raise the camera back to 1.375 units
+        newPosition.y += 0.5f; // Raise the camera back to 1.375 units
         controller.CinemachineCameraTarget.transform.position = newPosition;
         isCrouching = false;
-        controller.MoveSpeed = startMovementSpeed;
+        controller.enabled = true;
     }
     public void BecomeInvisible()
     {

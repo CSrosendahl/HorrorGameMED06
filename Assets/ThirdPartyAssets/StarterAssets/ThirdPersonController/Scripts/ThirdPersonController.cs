@@ -91,6 +91,7 @@ namespace StarterAssets
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
 
+        public bool canSprint;
         
 
 
@@ -298,6 +299,7 @@ namespace StarterAssets
             // set target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed;
 
+            
             if (_input.sprint)
             {
                 targetSpeed = SprintSpeed;
@@ -305,6 +307,12 @@ namespace StarterAssets
             else if (_input.sneak)
             {
                 targetSpeed = SneakSpeed;
+                
+            }
+            else if(_input.crouch)
+            {
+                targetSpeed = SneakSpeed;
+                
             }
             else
             {

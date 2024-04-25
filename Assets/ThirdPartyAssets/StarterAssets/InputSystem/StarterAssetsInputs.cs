@@ -16,6 +16,7 @@ namespace StarterAssets
         public bool jump;
         public bool sprint;
         public bool sneak;
+        public bool crouch;
   
 
         [Header("Movement Settings")]
@@ -62,6 +63,10 @@ namespace StarterAssets
         {
             SneakInput(value.isPressed);
         }
+        //public void OnCrouch(InputValue value)
+        //{
+        //    CrouchInput(value.isPressed);
+        //}
 
 
 
@@ -134,6 +139,17 @@ namespace StarterAssets
         {
             sneak = newSneakState;
         }
+        //public void CrouchInput(bool newCrouchState)
+        //{
+        //    if(humanAbility != null)
+        //    {
+        //        crouch = newCrouchState;
+        //    }else
+        //    {
+        //        Debug.Log("Monster cannot crouch");
+        //    }
+           
+        //}
 
         private void OnApplicationFocus(bool hasFocus)
         {
