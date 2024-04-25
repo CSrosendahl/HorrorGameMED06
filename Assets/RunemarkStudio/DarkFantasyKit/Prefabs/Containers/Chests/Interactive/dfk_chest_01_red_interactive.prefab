@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 5955936
+  GlobalObjectIdHash: 1439038778
   InScenePlacedSourceGlobalObjectIdHash: 1439038778
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1024955261
+  GlobalObjectIdHash: 4016926688
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -358,7 +358,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1008464326460957276, guid: 0d20e1d66b73cd747922d8c2aa19b159, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 204696509
+      value: 2931614204
       objectReference: {fileID: 0}
     - target: {fileID: 1008464326460957276, guid: 0d20e1d66b73cd747922d8c2aa19b159, type: 3}
       propertyPath: InScenePlacedSourceGlobalObjectIdHash

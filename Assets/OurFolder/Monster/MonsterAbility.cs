@@ -45,6 +45,7 @@ public class MonsterAbility : NetworkBehaviour
         monsterIsReaching = true;
         monsterAnim.Play("Reach");
         Debug.Log("Monster is reaching");
+        Debug.Log(monsterIsReaching);
     }
 
     public void MonsterScream()
@@ -103,9 +104,10 @@ public class MonsterAbility : NetworkBehaviour
     private void OnTriggerEnter(Collider other)
     {
        
-        if (IsServer && other.gameObject.CompareTag("Human") && monsterIsReaching) // Only execute on the server
+        if (IsServer  && other.gameObject.CompareTag("Human") && monsterIsReaching) // Only execute on the server
         {
             HumanCaught = true;
+
             Debug.Log(HumanCaught);
             
             monsterWinUI.UpdateUIOnClientsServerRpc(true);

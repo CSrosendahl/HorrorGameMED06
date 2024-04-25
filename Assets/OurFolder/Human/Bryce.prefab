@@ -647,7 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2078638769
+  GlobalObjectIdHash: 1534543948
   InScenePlacedSourceGlobalObjectIdHash: 1534543948
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -704,6 +704,7 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  canSprint: 0
 --- !u!114 &6453243230430080669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,6 +739,7 @@ MonoBehaviour:
   jump: 0
   sprint: 0
   sneak: 0
+  crouch: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -2760,7 +2762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2996568215
+  GlobalObjectIdHash: 510360405
   InScenePlacedSourceGlobalObjectIdHash: 1534543948
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1

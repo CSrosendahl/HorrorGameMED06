@@ -2658,7 +2658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3335048021
+  GlobalObjectIdHash: 2716595249
   InScenePlacedSourceGlobalObjectIdHash: 2716595249
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -2715,6 +2715,7 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  canSprint: 0
 --- !u!114 &3807397242952132184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2749,6 +2750,7 @@ MonoBehaviour:
   jump: 0
   sprint: 0
   sneak: 0
+  crouch: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -2933,6 +2935,7 @@ MonoBehaviour:
   canScream: 0
   screamCoolDown: 10
   monsterWinUI: {fileID: 0}
+  monsterIsReaching: 0
 --- !u!114 &8504194127677785459
 MonoBehaviour:
   m_ObjectHideFlags: 0
