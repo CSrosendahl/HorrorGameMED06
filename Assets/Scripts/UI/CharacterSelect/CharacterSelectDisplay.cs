@@ -114,11 +114,11 @@ public class CharacterSelectDisplay : NetworkBehaviour
         // Display the abilities of the selected character
         if (character.IsHuman)
         {
-            abilitiesDescriptionText.text = "You have the following human abilities:\n- Press F To throw objects \n- Press Z to crouch \n- Press LCTRL to sneak (No footsteps)";
+            abilitiesDescriptionText.text = "You have the following human abilities:\n- Press Q To throw objects \n- Press Z to crouch \n- Press LCTRL to sneak (No footsteps)";
         }
         else if (character.IsMonster) // Use else if here instead of another if
         {
-            abilitiesDescriptionText.text = "You have the following monster abilities:\n- Ability 1\n- Ability 2\n- Ability 3";
+            abilitiesDescriptionText.text = "You have the following monster abilities:\n- F Scream at the human 1\n- Q Grab the human";
         }
         else
         {

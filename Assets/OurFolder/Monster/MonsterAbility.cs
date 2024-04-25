@@ -22,11 +22,13 @@ public class MonsterAbility : NetworkBehaviour
     public float screamCoolDown = 10f;
 
     public MonsterWinUI monsterWinUI;
+    public bool monsterIsReaching = false;
 
     
 
     private void Start()
     {
+        monsterIsReaching = false;
         canScream = true;
         startMovementSpeed = controller.MoveSpeed;
         startSprintMovementSpeed = controller.SprintSpeed;
@@ -40,6 +42,7 @@ public class MonsterAbility : NetworkBehaviour
 
     public void MonsterReach()
     {
+        monsterIsReaching = true;
         monsterAnim.Play("Reach");
         Debug.Log("Monster is reaching");
     }
@@ -99,8 +102,8 @@ public class MonsterAbility : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Monster is hitting something" + other.tag);
-        if (IsServer && other.gameObject.CompareTag("Human")) // Only execute on the server
+       
+        if (IsServer && other.gameObject.CompareTag("Human") && monsterIsReaching) // Only execute on the server
         {
             HumanCaught = true;
             Debug.Log(HumanCaught);
