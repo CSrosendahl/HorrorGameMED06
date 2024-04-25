@@ -4,6 +4,7 @@ using UnityEngine;
 using Unity.Netcode;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class MonsterAbility : NetworkBehaviour
 {
@@ -16,12 +17,17 @@ public class MonsterAbility : NetworkBehaviour
     public bool HumanCaught = false;
 
     public Collider screamTrigger;
+    public AudioClip monsterScream;
+    public bool canScream;
+    public float screamCoolDown = 10f;
 
     public MonsterWinUI monsterWinUI;
 
+    
 
     private void Start()
     {
+        canScream = true;
         startMovementSpeed = controller.MoveSpeed;
         startSprintMovementSpeed = controller.SprintSpeed;
         startJumpHeight = controller.JumpHeight;
@@ -40,14 +46,32 @@ public class MonsterAbility : NetworkBehaviour
 
     public void MonsterScream()
     {
-        monsterAnim.Play("Scream");
-        FreezeMovement();
-        screamTrigger.enabled = true;
-        StartCoroutine(WaitToUnfreeze(2.15f));
-        Debug.Log("Monster is screaming");
+        if(canScream)
+        {
+            monsterAnim.Play("Scream");
+            MonsterScreamAudio();
+            FreezeMovement();
+            screamTrigger.enabled = true;
+            canScream = false;
+
+            StartCoroutine(WaitToUnfreeze(2.15f));
+            StartCoroutine(ScreamCoolDown(screamCoolDown));
+            Debug.Log("Monster is screaming");
+        }
 
        
-     
+
+    }
+    IEnumerator ScreamCoolDown(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        canScream = true;
+    }
+
+    public void MonsterScreamAudio()
+    {
+        AudioSource.PlayClipAtPoint(monsterScream, transform.position);
+
     }
 
   

@@ -2658,7 +2658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2716595249
+  GlobalObjectIdHash: 3335048021
   InScenePlacedSourceGlobalObjectIdHash: 2716595249
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -2927,8 +2927,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterAnim: {fileID: 3863482738368046087}
   controller: {fileID: 2185441865574393769}
+  HumanCaught: 0
   screamTrigger: {fileID: 107284535861664002}
-  monsterCaughtText: {fileID: 6607358913678572225, guid: 29fcf53faa47d1d4f9a21364d9d294aa, type: 3}
+  monsterScream: {fileID: 8300000, guid: 60ca3873bb9e3eb47b2c202824b94ddc, type: 3}
+  canScream: 0
+  screamCoolDown: 10
+  monsterWinUI: {fileID: 0}
 --- !u!114 &8504194127677785459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2941,6 +2945,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39a7bf40484528f4fb50a595cd586094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CVC: {fileID: 0}
+  cinemachine3RdPersonFollow: {fileID: 0}
   shoulderOffset: 0.5
   isHuman: 0
   isMonster: 1
