@@ -40,6 +40,8 @@ public class MainMenuDisplay : MonoBehaviour
         }
     }
 
+   
+
     public void QuitGame()
     {
         Application.Quit();
