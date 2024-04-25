@@ -38,6 +38,7 @@ public class InfoUIScript : MonoBehaviour
         {
             humanUI.SetActive(false);
             monsterUI.SetActive(true);
+            Debug.Log("Monster UI Active");
         }
     }
 }
