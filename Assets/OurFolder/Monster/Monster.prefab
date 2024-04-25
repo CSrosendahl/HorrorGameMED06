@@ -2658,7 +2658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2423204283
+  GlobalObjectIdHash: 2631212731
   InScenePlacedSourceGlobalObjectIdHash: 2716595249
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -2936,6 +2936,7 @@ MonoBehaviour:
   screamCoolDown: 10
   monsterWinUI: {fileID: 0}
   monsterIsReaching: 0
+  InfoUi: {fileID: 0}
 --- !u!114 &8504194127677785459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2956,8 +2957,6 @@ MonoBehaviour:
   hasInvis: 0
   hasKey: 0
   hasBuff: 0
-  humanUI: {fileID: 0}
-  monsterUI: {fileID: 0}
 --- !u!114 &-673767261602564415
 MonoBehaviour:
   m_ObjectHideFlags: 0

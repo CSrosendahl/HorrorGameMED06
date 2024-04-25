@@ -30,6 +30,7 @@ namespace StarterAssets
         public MonsterAbility monsterAbility;
         public HumanAbility humanAbility;
 
+        
 
 
 
@@ -106,11 +107,21 @@ namespace StarterAssets
 
             Debug.Log("F pressed");
         }
-        //public void OnE()
-        //{    
 
-        //    Debug.Log("E pressed");
-        //}
+        public void OnT()
+       {
+            if (monsterAbility != null)
+            {
+                monsterAbility.ShowUi();
+                Debug.Log("T pressed");
+            }
+            if (humanAbility != null)
+            {
+                humanAbility.ShowUi();
+                Debug.Log("T pressed");
+            }
+           
+       }
 
 
 

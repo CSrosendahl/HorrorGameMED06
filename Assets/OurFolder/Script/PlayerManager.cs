@@ -19,8 +19,7 @@ public class PlayerManager : NetworkBehaviour
     public bool hasKey;
     public bool hasBuff;
 
-    public GameObject humanUI;
-    public GameObject monsterUI;
+ 
 
 
     private void Start()
@@ -44,16 +43,7 @@ public class PlayerManager : NetworkBehaviour
             }
         }
 
-        if (isHuman)
-        {
-            humanUI.SetActive(true);
-          
-        }
-        else
-        {
-           
-            monsterUI.SetActive(true);
-        }
+      
 
 
 

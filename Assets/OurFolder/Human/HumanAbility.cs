@@ -29,6 +29,7 @@ public class HumanAbility : NetworkBehaviour
     public Transform firePoint;
     public float throwForce = 35f;
     public bool humanHasKey;
+    public GameObject InfoUi;
 
     private void Start()
     {
@@ -89,6 +90,10 @@ public class HumanAbility : NetworkBehaviour
         }
         
     
+    }
+    public void ShowUi()
+    {
+        InfoUi.SetActive(true);
     }
     private void LowerCamera()
     {

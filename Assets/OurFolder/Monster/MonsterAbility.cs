@@ -5,6 +5,7 @@ using Unity.Netcode;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using JetBrains.Annotations;
 
 public class MonsterAbility : NetworkBehaviour
 {
@@ -23,6 +24,7 @@ public class MonsterAbility : NetworkBehaviour
 
     public MonsterWinUI monsterWinUI;
     public bool monsterIsReaching;
+    public GameObject InfoUi;
 
     
 
@@ -66,6 +68,11 @@ public class MonsterAbility : NetworkBehaviour
 
        
 
+    }
+
+    public void ShowUi()
+    {
+        InfoUi.SetActive(true);
     }
     IEnumerator ScreamCoolDown(float duration)
     {

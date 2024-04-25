@@ -5,27 +5,11 @@ using UnityEngine;
 
 public class InfoUIScript : MonoBehaviour
 {
-    public GameObject humanUI; // Reference to the UI elements for human player
-    public GameObject monsterUI; // Reference to the UI elements for monster player
-    public PlayerManager humanManager;
-    public PlayerManager monsterManager;
+     public GameObject info;
 
     void Start()
     {
-        if (humanManager.isHuman)
-        {
-            humanUI.SetActive(true);
-            monsterUI.SetActive(false);
-            Debug.Log("Human UI Active");
-        }
-
-        else
-        {
-            humanUI.SetActive(false);
-            monsterUI.SetActive(true);
-            Debug.Log("Monster UI Active");
-        }
-
+      
 
     }
 
