@@ -30,6 +30,7 @@ public class MonsterAbility : NetworkBehaviour
 
     private void Start()
     {
+        
         HumanCaught = false;
         monsterIsReaching = false;
         canScream = true;
@@ -71,8 +72,14 @@ public class MonsterAbility : NetworkBehaviour
     }
 
     public void ShowUi()
+
     {
-        InfoUi.SetActive(true);
+        if(IsClient && IsOwner)
+        {
+            InfoUi = GameObject.FindGameObjectWithTag("InfoUI");
+            InfoUi.SetActive(!InfoUi.activeSelf);
+        }
+        
     }
     IEnumerator ScreamCoolDown(float duration)
     {

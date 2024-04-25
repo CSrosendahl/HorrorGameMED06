@@ -10,6 +10,7 @@ TagManager:
   - Human
   - Ground
   - Monster
+  - InfoUI
   layers:
   - Default
   - TransparentFX

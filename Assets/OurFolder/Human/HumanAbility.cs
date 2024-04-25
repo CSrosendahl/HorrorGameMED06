@@ -33,6 +33,7 @@ public class HumanAbility : NetworkBehaviour
 
     private void Start()
     {
+       
         isCrouching = false;
         startMovementSpeed = controller.MoveSpeed;
         startSprintMovementSpeed = controller.SprintSpeed;
@@ -93,7 +94,11 @@ public class HumanAbility : NetworkBehaviour
     }
     public void ShowUi()
     {
-        InfoUi.SetActive(true);
+        if (IsClient && IsOwner)
+        {
+            InfoUi = GameObject.FindGameObjectWithTag("InfoUI");
+            InfoUi.SetActive(!InfoUi.activeSelf);
+        }
     }
     private void LowerCamera()
     {
