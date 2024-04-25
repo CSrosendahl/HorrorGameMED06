@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 327089892
+  GlobalObjectIdHash: 3106926691
   InScenePlacedSourceGlobalObjectIdHash: 1734106851
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 846071103
+  GlobalObjectIdHash: 3889256883
   InScenePlacedSourceGlobalObjectIdHash: 1734106851
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -289,7 +289,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.64855355, y: 0.59, z: 0.5083961}
+  m_Size: {x: 0.71, y: 0.59, z: 0.61}
   m_Center: {x: 0, y: 0.08, z: 0.002680659}
 --- !u!54 &1491051423099610781
 Rigidbody:
@@ -381,7 +381,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1008464326460957276, guid: 0d20e1d66b73cd747922d8c2aa19b159, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 2235302226
+      value: 3980545415
       objectReference: {fileID: 0}
     - target: {fileID: 1008464326460957276, guid: 0d20e1d66b73cd747922d8c2aa19b159, type: 3}
       propertyPath: InScenePlacedSourceGlobalObjectIdHash
