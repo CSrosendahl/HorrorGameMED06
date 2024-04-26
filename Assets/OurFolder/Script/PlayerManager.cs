@@ -2,6 +2,7 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerManager : NetworkBehaviour
@@ -9,6 +10,8 @@ public class PlayerManager : NetworkBehaviour
 
     public CinemachineVirtualCamera CVC;
     public Cinemachine3rdPersonFollow cinemachine3RdPersonFollow;
+    public FindUI findUI;
+    public GameObject infoUIGameObject;
    
 
     public float shoulderOffset; // 0.5f for monster, 0.2f for human is best
@@ -24,6 +27,12 @@ public class PlayerManager : NetworkBehaviour
 
     private void Start()
     {
+        if(findUI == null)
+        {
+            findUI = FindAnyObjectByType<FindUI>();
+            infoUIGameObject = findUI.GetComponent<FindUI>().gameObject;
+        }
+       
         if (CVC == null)
         {
             CVC = FindAnyObjectByType<CinemachineVirtualCamera>();

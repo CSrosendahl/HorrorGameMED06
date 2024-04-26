@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using Unity.VisualScripting;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 
 public class HumanAbility : NetworkBehaviour
@@ -29,7 +30,7 @@ public class HumanAbility : NetworkBehaviour
     public Transform firePoint;
     public float throwForce = 35f;
     public bool humanHasKey;
-    public GameObject InfoUi;
+   
 
     private void Start()
     {
@@ -96,10 +97,20 @@ public class HumanAbility : NetworkBehaviour
     {
         if (IsClient && IsOwner)
         {
-            InfoUi = GameObject.FindGameObjectWithTag("InfoUI");
-            InfoUi.SetActive(!InfoUi.activeSelf);
+            Transform infoUITransform = playerManager.infoUIGameObject.transform;
+
+            // Iterate through each child of the infoUIGameObject
+            for (int i = 0; i < infoUITransform.childCount; i++)
+            {
+                GameObject child = infoUITransform.GetChild(i).gameObject;
+
+                // Do something with the child GameObject
+                // For example, activate or deactivate it
+                child.SetActive(!child.activeSelf);
+            }
         }
     }
+
     private void LowerCamera()
     {
         Vector3 newPosition = controller.CinemachineCameraTarget.transform.position;

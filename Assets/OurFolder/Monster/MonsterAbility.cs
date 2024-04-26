@@ -14,6 +14,7 @@ public class MonsterAbility : NetworkBehaviour
     private float startMovementSpeed;
     private float startSprintMovementSpeed;
     private float startJumpHeight;
+    public PlayerManager playerManager;
 
     public bool HumanCaught;
 
@@ -24,7 +25,7 @@ public class MonsterAbility : NetworkBehaviour
 
     public MonsterWinUI monsterWinUI;
     public bool monsterIsReaching;
-    public GameObject InfoUi;
+   
 
     
 
@@ -72,14 +73,21 @@ public class MonsterAbility : NetworkBehaviour
     }
 
     public void ShowUi()
-
     {
-        if(IsClient && IsOwner)
+        if (IsClient && IsOwner)
         {
-            InfoUi = GameObject.FindGameObjectWithTag("InfoUI");
-            InfoUi.SetActive(!InfoUi.activeSelf);
+            Transform infoUITransform = playerManager.infoUIGameObject.transform;
+
+            // Iterate through each child of the infoUIGameObject
+            for (int i = 0; i < infoUITransform.childCount; i++)
+            {
+                GameObject child = infoUITransform.GetChild(i).gameObject;
+
+                // Do something with the child GameObject
+                // For example, activate or deactivate it
+                child.SetActive(!child.activeSelf);
+            }
         }
-        
     }
     IEnumerator ScreamCoolDown(float duration)
     {
