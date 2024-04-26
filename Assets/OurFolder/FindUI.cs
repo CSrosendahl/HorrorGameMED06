@@ -5,5 +5,7 @@ using UnityEngine;
 
 public class FindUI : MonoBehaviour
 {
+    public TextMeshProUGUI desc;
    
+
 }
