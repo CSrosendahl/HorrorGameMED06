@@ -2596,7 +2596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3333974210
+  GlobalObjectIdHash: 400399509
   InScenePlacedSourceGlobalObjectIdHash: 775289085
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -2879,15 +2879,16 @@ MonoBehaviour:
   humanHairMat: {fileID: -2716008851916039567, guid: db88e078ed16e904a99ad3fe002958fe, type: 3}
   invisMaterial: {fileID: 2100000, guid: 70d0bcde7d435e84cb8e704d6ae75ccf, type: 2}
   humanMeshRenderer:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2037969787587752802}
+  - {fileID: 3255143599759768450}
+  - {fileID: 2624458424734792919}
+  - {fileID: 8336366989456644154}
+  - {fileID: 9017143492927741943}
+  - {fileID: 7249237387535907096}
   firePoint: {fileID: 4469110616029781656}
   throwForce: 25
   humanHasKey: 0
+  wasCaught: 0
 --- !u!114 &8047953079564416090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2933,14 +2934,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CVC: {fileID: 0}
   cinemachine3RdPersonFollow: {fileID: 0}
+  findUI: {fileID: 0}
+  infoUIGameObject: {fileID: 0}
   shoulderOffset: 0.2
   isHuman: 1
   isMonster: 0
   hasInvis: 0
   hasKey: 0
   hasBuff: 0
-  humanUI: {fileID: 0}
-  monsterUI: {fileID: 0}
 --- !u!1 &8000008068284153404
 GameObject:
   m_ObjectHideFlags: 0
