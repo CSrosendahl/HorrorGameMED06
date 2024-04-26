@@ -21,6 +21,8 @@ public class PlayerManager : NetworkBehaviour
     public bool hasInvis;
     public bool hasKey;
     public bool hasBuff;
+    public bool isSofie;
+    public bool isBryce;
     
 
  

@@ -647,7 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2798315992
+  GlobalObjectIdHash: 1853024742
   InScenePlacedSourceGlobalObjectIdHash: 1534543948
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -926,6 +926,9 @@ MonoBehaviour:
   - {fileID: 1425588796310928600, guid: f251e5d16eb9e4f45ab21caae65cfed4, type: 3}
   controller: {fileID: 3943249140698515553}
   playerManager: {fileID: 3939719471475533369}
+  caughtClip: {fileID: 0}
+  sofieClip: {fileID: 8300000, guid: aa550b46bd5c18e42ad6b6849f238918, type: 3}
+  bryceClip: {fileID: 8300000, guid: 1bf39ce334ee57c49bef82ba0b3dc467, type: 3}
   humanClothesMat: {fileID: 2100000, guid: 09adb11e217d8864fb3a0900b08b717a, type: 2}
   humanHairMat: {fileID: 2100000, guid: d949b6f74b13b1d43a33115c533fb818, type: 2}
   invisMaterial: {fileID: 2100000, guid: 70d0bcde7d435e84cb8e704d6ae75ccf, type: 2}
@@ -939,7 +942,7 @@ MonoBehaviour:
   firePoint: {fileID: 7206766232995764429}
   throwForce: 25
   humanHasKey: 0
-  InfoUi: {fileID: 0}
+  wasCaught: 0
 --- !u!114 &8424312584252434207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -986,13 +989,15 @@ MonoBehaviour:
   CVC: {fileID: 0}
   cinemachine3RdPersonFollow: {fileID: 0}
   findUI: {fileID: 0}
-  infoUI: {fileID: 0}
+  infoUIGameObject: {fileID: 0}
   shoulderOffset: 0.2
   isHuman: 1
   isMonster: 0
   hasInvis: 0
   hasKey: 0
   hasBuff: 0
+  isSofie: 0
+  isBryce: 1
 --- !u!1 &1732172297555312009
 GameObject:
   m_ObjectHideFlags: 0

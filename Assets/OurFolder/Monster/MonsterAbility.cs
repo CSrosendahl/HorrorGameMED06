@@ -138,7 +138,7 @@ public class MonsterAbility : NetworkBehaviour
                 }
 
                    
-               // monsterWinUI.UpdateUIOnClientsServerRpc(HumanCaught);
+             
 
             }
         }
@@ -163,14 +163,26 @@ public class MonsterAbility : NetworkBehaviour
         foreach (var playerGameObject in GameObject.FindGameObjectsWithTag("Human"))
         {
             var HumanAbility = playerGameObject.GetComponent<HumanAbility>();
+            var playerManager = playerGameObject.GetComponent<PlayerManager>();
             if (HumanAbility != null)
             {
+                if(playerManager.isBryce)
+                {
+                    Debug.Log("Bryce Should scream");
+                    Debug.Log("Bryce caught");
+                    HumanAbility.caughtClip = HumanAbility.bryceClip;
+                }
+                else
+                {
+                    Debug.Log("Sofie Should scream");
+                    Debug.Log("Sofie caught");
+                    HumanAbility.caughtClip = HumanAbility.sofieClip;
+                }
+
+                HumanAbility.WasCaught();
                 
-                HumanAbility.humanAnimator.Play("ScaredLoop");
-                HumanAbility.controller.enabled = false;
-                HumanAbility.wasCaught = true;
                 monsterWinUI.UpdateUIOnClientsServerRpc();
-                Debug.Log("Human caught");
+              
             }
         }
     }

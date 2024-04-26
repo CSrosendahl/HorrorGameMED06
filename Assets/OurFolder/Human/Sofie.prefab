@@ -2596,7 +2596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 400399509
+  GlobalObjectIdHash: 892298494
   InScenePlacedSourceGlobalObjectIdHash: 775289085
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -2875,6 +2875,9 @@ MonoBehaviour:
   - {fileID: 1425588796310928600, guid: f251e5d16eb9e4f45ab21caae65cfed4, type: 3}
   controller: {fileID: 2632849400507369433}
   playerManager: {fileID: 723822557762043319}
+  caughtClip: {fileID: 0}
+  sofieClip: {fileID: 8300000, guid: aa550b46bd5c18e42ad6b6849f238918, type: 3}
+  bryceClip: {fileID: 8300000, guid: 1bf39ce334ee57c49bef82ba0b3dc467, type: 3}
   humanClothesMat: {fileID: -7440411687008443240, guid: db88e078ed16e904a99ad3fe002958fe, type: 3}
   humanHairMat: {fileID: -2716008851916039567, guid: db88e078ed16e904a99ad3fe002958fe, type: 3}
   invisMaterial: {fileID: 2100000, guid: 70d0bcde7d435e84cb8e704d6ae75ccf, type: 2}
@@ -2942,6 +2945,8 @@ MonoBehaviour:
   hasInvis: 0
   hasKey: 0
   hasBuff: 0
+  isSofie: 1
+  isBryce: 0
 --- !u!1 &8000008068284153404
 GameObject:
   m_ObjectHideFlags: 0

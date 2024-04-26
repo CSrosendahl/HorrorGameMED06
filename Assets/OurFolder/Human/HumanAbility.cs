@@ -13,12 +13,17 @@ public class HumanAbility : NetworkBehaviour
     public GameObject[] throwPrefabs;
     public ThirdPersonController controller;
     public PlayerManager playerManager;
+    public AudioClip caughtClip;
+
+    public AudioClip sofieClip;
+    public AudioClip bryceClip;
     private float startMovementSpeed;
     private float startSprintMovementSpeed;
     private float startJumpHeight;
     bool isCrouching;
 
     private Transform cameraStartPos;
+    
 
     public Material humanClothesMat;
     public Material humanHairMat;
@@ -31,6 +36,7 @@ public class HumanAbility : NetworkBehaviour
     public float throwForce = 35f;
     public bool humanHasKey;
     public bool wasCaught;
+   
 
     private void Start()
     {
@@ -165,6 +171,16 @@ public class HumanAbility : NetworkBehaviour
         controller.JumpHeight = startJumpHeight;
         
     }
+
+    public void WasCaught()
+    {
+        controller.enabled = false;
+        humanAnimator.Play("ScaredLoop");
+
+        AudioSource.PlayClipAtPoint(caughtClip, transform.position, 0.5f);
+        wasCaught = true;
+    }
+    
 
     public void ShrinkCharacter()
     {
