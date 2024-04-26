@@ -9,7 +9,7 @@ public class TryAgain : MonoBehaviour
    
     public void tryAgain()
     {
-       SceneManager.LoadScene(2);
+       SceneManager.LoadScene(4);
         Debug.Log("Try Again");
     }
 
