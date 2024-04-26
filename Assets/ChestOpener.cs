@@ -67,6 +67,7 @@ public class ChestOpener : NetworkBehaviour
             StartCoroutine(WaitForAnimation());
         }
         wasOpened = true;
+       
     }
 
     IEnumerator WaitForAnimation()

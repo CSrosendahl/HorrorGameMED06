@@ -113,6 +113,7 @@ public class HumanAbility : NetworkBehaviour
                 // Do something with the child GameObject
                 // For example, activate or deactivate it
                 child.SetActive(!child.activeSelf);
+
             }
         }
     }

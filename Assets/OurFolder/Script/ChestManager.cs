@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class ChestManager : NetworkBehaviour
 {
+    
     public GameObject[] chests;
+    public int chestsOpened = 0;
 
     void Start()
     {
