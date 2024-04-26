@@ -16,7 +16,7 @@ public class MonsterAbility : NetworkBehaviour
     private float startJumpHeight;
     public PlayerManager playerManager;
 
-    public bool HumanCaught;
+ 
 
     public Collider screamTrigger;
     public AudioClip monsterScream;
@@ -32,7 +32,7 @@ public class MonsterAbility : NetworkBehaviour
     private void Start()
     {
         
-        HumanCaught = false;
+      
         monsterIsReaching = false;
         canScream = true;
         startMovementSpeed = controller.MoveSpeed;
@@ -130,15 +130,48 @@ public class MonsterAbility : NetworkBehaviour
         {
             if (other.gameObject.CompareTag("Human") && monsterIsReaching) // Only execute on the server
             {
-                HumanCaught = true;
+              
 
-                Debug.Log(HumanCaught);
+                if (IsClient)
+                {
+                    CaughtOnClientsServerRPC();
+                }
 
-                monsterWinUI.UpdateUIOnClientsServerRpc(HumanCaught);
+                   
+               // monsterWinUI.UpdateUIOnClientsServerRpc(HumanCaught);
 
             }
         }
-       
-      
+ 
+    }
+
+  
+
+    [ServerRpc(RequireOwnership = false)]
+    void CaughtOnClientsServerRPC()
+    {
+        // This function will be executed on all clients by the server
+        RpcHumanCaughtClientRPC();
+    }
+
+    [ClientRpc]
+    void RpcHumanCaughtClientRPC()
+    {
+
+        
+
+        foreach (var playerGameObject in GameObject.FindGameObjectsWithTag("Human"))
+        {
+            var HumanAbility = playerGameObject.GetComponent<HumanAbility>();
+            if (HumanAbility != null)
+            {
+                
+                HumanAbility.humanAnimator.Play("ScaredLoop");
+                HumanAbility.controller.enabled = false;
+                HumanAbility.wasCaught = true;
+                monsterWinUI.UpdateUIOnClientsServerRpc();
+                Debug.Log("Human caught");
+            }
+        }
     }
 }

@@ -30,11 +30,11 @@ public class HumanAbility : NetworkBehaviour
     public Transform firePoint;
     public float throwForce = 35f;
     public bool humanHasKey;
-   
+    public bool wasCaught;
 
     private void Start()
     {
-       
+        wasCaught = false;
         isCrouching = false;
         startMovementSpeed = controller.MoveSpeed;
         startSprintMovementSpeed = controller.SprintSpeed;
