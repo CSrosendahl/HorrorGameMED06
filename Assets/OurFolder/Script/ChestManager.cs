@@ -6,6 +6,11 @@ using UnityEngine;
 public class ChestManager : NetworkBehaviour
 {
     public static ChestManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     public GameObject[] chests;
     public int chestsOpened = 0;
 

@@ -30,11 +30,7 @@ public class PlayerManager : NetworkBehaviour
 
     private void Start()
     {
-        if(findUI == null)
-        {
-            findUI = FindAnyObjectByType<FindUI>();
-            infoUIGameObject = findUI.GetComponent<FindUI>().gameObject;
-        }
+
        
         if (CVC == null)
         {

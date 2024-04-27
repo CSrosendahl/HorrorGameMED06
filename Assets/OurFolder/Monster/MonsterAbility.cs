@@ -72,23 +72,7 @@ public class MonsterAbility : NetworkBehaviour
 
     }
 
-    public void ShowUi()
-    {
-        if (IsClient && IsOwner)
-        {
-            Transform infoUITransform = playerManager.infoUIGameObject.transform;
 
-            // Iterate through each child of the infoUIGameObject
-            for (int i = 0; i < infoUITransform.childCount; i++)
-            {
-                GameObject child = infoUITransform.GetChild(i).gameObject;
-
-                // Do something with the child GameObject
-                // For example, activate or deactivate it
-                child.SetActive(!child.activeSelf);
-            }
-        }
-    }
     IEnumerator ScreamCoolDown(float duration)
     {
         yield return new WaitForSeconds(duration);

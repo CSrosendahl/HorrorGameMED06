@@ -110,14 +110,17 @@ namespace StarterAssets
 
         public void OnT()
        {
+            // Dont think we need to check for null, test it on network
             if (monsterAbility != null)
             {
-                monsterAbility.ShowUi();
+               
+                UIManager.instance.ToggleToolTips();
                 Debug.Log("T pressed");
             }
             if (humanAbility != null)
             {
-                humanAbility.ShowUi();
+             
+                UIManager.instance.ToggleToolTips();
                 Debug.Log("T pressed");
             }
            
