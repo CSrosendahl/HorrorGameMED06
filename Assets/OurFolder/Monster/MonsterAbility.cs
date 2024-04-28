@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using JetBrains.Annotations;
+using Unity.VisualScripting;
 
 public class MonsterAbility : NetworkBehaviour
 {
@@ -118,12 +119,9 @@ public class MonsterAbility : NetworkBehaviour
 
                 if (IsClient)
                 {
-                  //  CaughtOnClientsServerRPC();
-                    CheckIfCaught();
+                 
+                    CaughtOnClientsServerRPC();
                 }
-               
-
-
 
 
             }
@@ -144,9 +142,8 @@ public class MonsterAbility : NetworkBehaviour
     void RpcHumanCaughtClientRPC()
     {
 
-        
-
-        foreach (var playerGameObject in GameObject.FindGameObjectsWithTag("Human"))
+     
+        foreach (var playerGameObject in GameManager.instance.humanList)
         {
             var HumanAbility = playerGameObject.GetComponent<HumanAbility>();
             var playerManager = playerGameObject.GetComponent<PlayerManager>();
@@ -169,34 +166,6 @@ public class MonsterAbility : NetworkBehaviour
                 
                 monsterWinUI.UpdateUIOnClientsServerRpc();
               
-            }
-        }
-    }
-    public void CheckIfCaught()
-    {
-        foreach (var playerGameObject in GameManager.instance.humanList)
-        {
-            var HumanAbility = playerGameObject.GetComponent<HumanAbility>();
-            var playerManager = playerGameObject.GetComponent<PlayerManager>();
-            if (HumanAbility != null)
-            {
-                if (playerManager.isBryce)
-                {
-                    Debug.Log("Bryce Should scream");
-                    Debug.Log("Bryce caught");
-                    HumanAbility.caughtClip = HumanAbility.bryceClip;
-                }
-                else
-                {
-                    Debug.Log("Sofie Should scream");
-                    Debug.Log("Sofie caught");
-                    HumanAbility.caughtClip = HumanAbility.sofieClip;
-                }
-
-                HumanAbility.WasCaught();
-
-                monsterWinUI.UpdateUIOnClientsServerRpc();
-
             }
         }
     }

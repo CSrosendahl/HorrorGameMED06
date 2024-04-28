@@ -15,32 +15,7 @@ public class MonsterWinUI : NetworkBehaviour
 
     public void UpdateUI()
     {
-       
-          //  bool allHumansCaught = true;
-
-        //Debug.Log(GameObject.FindGameObjectsWithTag("Human").Length);
-        //// Check each GameObject tagged as "Human"
-        //foreach (var playerGameObject in GameObject.FindGameObjectsWithTag("Human"))
-        //{
-        //    // Access the HumanAbility component
-        //    HumanAbility humanAbility = playerGameObject.GetComponent<HumanAbility>();
-
-        //    // Check if the human is caught
-        //    if (!humanAbility.wasCaught)
-        //    {
-        //        // If any human is not caught, set the flag to false and break the loop
-        //        allHumansCaught = false;
-        //        break;
-        //    }
-
-        //}
-
-        //// If all humans are caught, activate the HumanCaughtUI
-        //if (allHumansCaught)
-        //{
-        //    Debug.Log("All humans caught, activating UI");
-        //    //   HumanCaughtUI.SetActive(true);
-        //}
+  
 
         bool allHumansCaught = true;
         foreach (GameObject human in GameManager.instance.humanList)
@@ -57,7 +32,7 @@ public class MonsterWinUI : NetworkBehaviour
         if (allHumansCaught)
         {
             Debug.Log("All humans caught, activating UI");
-            //   HumanCaughtUI.SetActive(true);
+            HumanCaughtUI.SetActive(true);
         }
 
     }
