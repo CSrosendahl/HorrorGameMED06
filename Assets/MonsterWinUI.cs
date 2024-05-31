@@ -33,6 +33,8 @@ public class MonsterWinUI : NetworkBehaviour
         {
             Debug.Log("All humans caught, activating UI");
             HumanCaughtUI.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None; 
         }
 
     }

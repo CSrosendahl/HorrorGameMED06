@@ -52,6 +52,7 @@ public class MonsterAbility : NetworkBehaviour
         monsterAnim.Play("Reach");
         Debug.Log("Monster is reaching");
         Debug.Log(monsterIsReaching);
+        StartCoroutine(ResetReach(1.5f));
     }
 
     public void MonsterScream()
@@ -78,6 +79,11 @@ public class MonsterAbility : NetworkBehaviour
     {
         yield return new WaitForSeconds(duration);
         canScream = true;
+    }
+    IEnumerator ResetReach(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        monsterIsReaching = false;
     }
 
     public void MonsterScreamAudio()
