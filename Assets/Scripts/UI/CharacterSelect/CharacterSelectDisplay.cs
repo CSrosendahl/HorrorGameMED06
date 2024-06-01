@@ -120,7 +120,7 @@ public class CharacterSelectDisplay : NetworkBehaviour
         }
         else if (character.IsMonster) // Use else if here instead of another if
         {
-            abilitiesDescriptionText.text = "You have the following monster abilities:\n \n- F Scream at the human \n \n- Q Grab the human";
+            abilitiesDescriptionText.text = "You have the following monster abilities:\n \n- F Scream at the human, to freeze them \n \n- Q Grab the human";
         }
         else
         {

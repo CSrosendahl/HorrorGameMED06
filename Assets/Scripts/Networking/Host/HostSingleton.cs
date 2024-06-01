@@ -78,7 +78,7 @@ public class HostSingleton : MonoBehaviour
 
         try
         {
-            //Retrieve the Relay join code for our clients to join our party
+            //Retrieve the Relay join code for clients to join our party
             relayHostData.JoinCode = await Relay.Instance.GetJoinCodeAsync(RelayHostData.AllocationID);
 
             Debug.Log(RelayHostData.JoinCode);
